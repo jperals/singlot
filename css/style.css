@@ -9,25 +9,26 @@ body {
 .translation {
     background: transparent;
     border: none;
-    /*border-radius: 5px;*/
     color: #FFF;
     cursor: text;
     padding-right: 3em;
     text-shadow: 0 0 3px #000;
+    width: 100px;
 }
 .translation + a[role="button"] {
-    background-color: #AAAADD;
-    border: 1px solid #7777BB;
-    color: #999999;
+    background-color: #999999;
+    border: 1px solid #666666;
+    border-radius: 0 3px 3px 0;
+    color: #DDDDDD;
     display: none;
+    padding: 1px 0.3em 0;
     position: absolute;
-    right: 1em;
-    top: 0;
+    left: 118px;
+    top: 1px;
     text-decoration: none;
 }
 .translation + a[role="button"]:hover {
-    background-color: #7777BB;
-    color: #666666;
+    background-color: #666666;
 }
 .translation:focus {
     background: rgba(255, 255, 255, 0.5);

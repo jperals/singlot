@@ -15,7 +15,6 @@ var translation = translation || {};
         xhReq.send(null);
     };
     var onDataLoad = function(data) {
-        //console.log("data: " + data);
         var languages = JSON.parse(data);
         translation.languages = languages;
         for(var index in languages) {
@@ -39,14 +38,28 @@ var translation = translation || {};
                 var e = document.querySelector('.translation.language-' + this.language.code);
                 e.classList.add('active');
                 e.focus();
-                console.log('clicked on an input field');
+                var button = e.parentElement.querySelector('a[role="button"]');
                 var language = this.language;
+                var originalValue = e.value;
                 e.onblur = function() {
                     e.classList.remove('active');
-                    translation.translate({
-                        from: language,
-                        text: e.value
-                    });
+                    if(e.value !== originalValue) {
+                        translation.translate({
+                            from: language,
+                            text: e.value,
+                            callback: function(options) {
+                                if(options.to && options.translatedText) {
+                                    var elem = document.querySelector('.translation.language-' + options.to.code);
+                                    if(elem) {
+                                        elem.value = options.translatedText;
+                                    }
+                                }
+                            }
+                        });
+                    }
+                };
+                button.onclick = function() {
+                    e.blur();
                 };
             };
             marker.language = language;
