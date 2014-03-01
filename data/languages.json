@@ -1,844 +1,947 @@
 [
   {
-    "code": "ab",
-    "name": "Abkhaz"
+    "codes": {
+      "639-3": "abk"
+    },
+    "name": {
+      "abk": "Аҧсуа",
+      "en": "Abkhazian"
+    }
   },
   {
-    "code": "aa",
-    "name": "Afar"
+    "codes": {
+      "639-3": "aar"
+    },
+    "name": {
+      "aar": "Afaraf",
+      "en": "Afar"
+    }
   },
   {
-    "code": "af",
-    "name": "Afrikaans",
+    "codes": {
+      "639-3": "afr"
+    },
+    "name": {
+      "afr": "Afrikaans",
+      "en": "Afrikaans"
+    },
     "speakers": 4900000,
     "location": {
-        "lat": -29,
-        "lon": 22
+      "lat": -29,
+      "lon": 22
     }
   },
   {
-    "code": "ak",
-    "name": "Akan"
+    "codes": {
+      "639-3": "aka"
+    },
+    "name": {
+      "aka": "Akan",
+      "en": "Akan"
+    }
   },
   {
-    "code": "sq",
-    "name": "Albanian",
+    "codes": {
+      "639-1": "sq"
+    },
+    "name": {
+      "en": "Albanian"
+    },
     "speakers": 7500000,
     "location": {
-        "lat": 41,
-        "lon": 19
+      "lat": 41,
+      "lon": 19
     }
   },
   {
-    "code": "am",
-    "name": "Amharic",
+    "codes": {
+      "639-3": "amh"
+    },
+    "name": {
+      "amh": "አማርኛ",
+      "en": "Amharic"
+    },
     "speakers": 17500000,
     "location": {
-        "lat": 9,
-        "lon": 38
+      "lat": 9,
+      "lon": 38
     }
   },
   {
-    "code": "ar",
-    "name": "Arabic",
+    "codes": {
+      "639-1": "ar"
+    },
+    "name": {
+      "en": "Arabic"
+    },
     "speakers": 232000000,
     "location": {
-        "lat": 28,
-        "lon": 16
+      "lat": 28,
+      "lon": 16
     }
   },
   {
-    "code": "an",
-    "name": "Aragonese"
+    "codes": {
+      "639-1": "an",
+      "639-2": "arg",
+      "639-3": "arg"
+    },
+    "name": {
+      "an": "aragonés",
+      "en": "Aragonese"
+    },
+    "speakers": 25000,
+    "location": {
+      "lat": 42.3,
+      "lon": 0.09
+    }
   },
   {
-    "code": "hy",
-    "name": "Armenian",
+    "codes": {
+      "639-1": "hy"
+    },
+    "name": {
+      "en": "Armenian"
+    },
     "speakers": 6400000,
     "location": {
-        "lat": 40,
-        "lon": 44
+      "lat": 40,
+      "lon": 44
     }
   },
   {
-    "code": "as",
-    "name": "Assamese"
+    "codes": {
+      "639-3": "asm"
+    },
+    "name": {
+      "asm": "অসমীয়া",
+      "en": "Assamese"
+    }
   },
   {
-    "code": "av",
-    "name": "Avaric"
+    "codes": {
+      "639-3": "ava"
+    },
+    "name": {
+      "ava": "авар",
+      "en": "Avaric"
+    }
   },
   {
     "code": "ae",
-    "name": "Avestan"
+    "englishName": "Avestan"
   },
   {
     "code": "ay",
-    "name": "Aymara"
+    "englishName": "Aymara"
   },
   {
     "code": "az",
-    "name": "Azerbaijani",
+    "englishName": "Azerbaijani",
     "speakers": 20000000,
     "location": {
-        "lat": 38,
-        "lon": 48
+      "lat": 38,
+      "lon": 48
     }
   },
   {
     "code": "bm",
-    "name": "Bambara"
+    "englishName": "Bambara"
   },
   {
     "code": "ba",
-    "name": "Bashkir"
+    "englishName": "Bashkir"
   },
   {
-      "code": "bjs",
-      "name": "Bajan",
-      "speakers": 259000,
-      "location": {
-          "lat": 13,
-          "lon": -60
-      }
+    "code": "bjs",
+    "englishName": "Bajan",
+    "speakers": 259000,
+    "location": {
+      "lat": 13,
+      "lon": -60
+    }
   },
   {
-      "code": "rmn",
-      "name": "Balkan Romani",
-      "speakers": 709570,
-      "location": {
-          "lat": 45,
-          "lon": 20
-      }
+    "code": "rmn",
+    "englishName": "Balkan Romani",
+    "speakers": 709570,
+    "location": {
+      "lat": 45,
+      "lon": 20
+    }
   },
   {
     "code": "eu",
-    "name": "Basque",
+    "englishName": "Basque",
     "speakers": 665800,
     "location": {
-        "lat": 43,
-        "lon": -2
+      "lat": 43,
+      "lon": -2
     }
   },
   {
     "code": "be",
-    "name": "Belarusian",
+    "englishName": "Belarusian",
     "speakers": 9100000,
     "location": {
-        "lat": 53,
-        "lon": 27
+      "lat": 53,
+      "lon": 27
     }
   },
   {
-      "code": "bem",
-      "name": "Bemba",
-      "speakers": 3600000,
-      "location": {
-          "lat": -12,
-          "lon": 28
-      }
+    "code": "bem",
+    "englishName": "Bemba",
+    "speakers": 3600000,
+    "location": {
+      "lat": -12,
+      "lon": 28
+    }
   },
   {
     "code": "bn",
-    "name": "Bengali; Bangla",
+    "englishName": "Bengali; Bangla",
     "speakers": 181000000,
     "location": {
-        "lat": 23,
-        "lon": 89
+      "lat": 23,
+      "lon": 89
     }
   },
   {
     "code": "bh",
-    "name": "Bihari"
+    "englishName": "Bihari"
   },
   {
     "code": "bi",
-    "name": "Bislama",
+    "englishName": "Bislama",
     "speakers": 6000,
     "location": {
-        "lat": -17,
-        "lon": 168
+      "lat": -17,
+      "lon": 168
     }
   },
   {
     "code": "bs",
-    "name": "Bosnian",
+    "englishName": "Bosnian",
     "speakers": 2200000,
     "location": {
-        "lat": 44,
-        "lon": 18
+      "lat": 44,
+      "lon": 18
     }
   },
   {
     "code": "br",
-    "name": "Breton",
+    "englishName": "Breton",
     "speakers": 206000,
     "location": {
-        "lat": 48,
-        "lon": -3
+      "lat": 48,
+      "lon": -3
     }
   },
   {
     "code": "bg",
-    "name": "Bulgarian",
+    "englishName": "Bulgarian",
     "speakers": 9100000,
     "location": {
-        "lat": 42,
-        "lon": 23
+      "lat": 42,
+      "lon": 23
     }
   },
   {
     "code": "my",
-    "name": "Burmese",
+    "englishName": "Burmese",
     "speakers": 32000000,
     "location": {
-        "lat": 17,
-        "lon": 96
+      "lat": 17,
+      "lon": 96
     }
   },
   {
     "code": "ca",
-    "name": "Catalan; Valencian",
+    "name": {
+      "en": ["Catalan", "Valencian"]
+    },
     "speakers": 11530000,
     "location": {
-        "lat": 41,
-        "lon": 2
+      "lat": 41,
+      "lon": 2
     }
   },
   {
     "code": "ch",
-    "name": "Chamorro"
+    "englishName": "Chamorro"
   },
   {
     "code": "ce",
-    "name": "Chechen"
+    "englishName": "Chechen"
+  },
+  {
+    "codes": {
+      "639-3": "cmn",
+      "Linguasphere": "79-AAA-b"
+    },
+    "name": {
+      "cmn": ["普通话/普通話", "國語", "华语/華語"],
+      "en": "Mandarin"
+    },
+    "speakers": 960000000,
+    "location": {
+      "lat": 34,
+      "lon": 116.7
+    }
   },
   {
     "code": "ny",
-    "name": "Chichewa; Chewa; Nyanja"
+    "englishName": "Chichewa; Chewa; Nyanja"
   },
   {
     "code": "zh",
-    "name": "Chinese"
+    "englishName": "Chinese"
   },
   {
     "code": "cv",
-    "name": "Chuvash"
+    "englishName": "Chuvash"
   },
   {
     "code": "kw",
-    "name": "Cornish"
+    "englishName": "Cornish"
   },
   {
     "code": "co",
-    "name": "Corsican"
+    "englishName": "Corsican"
   },
   {
     "code": "cr",
-    "name": "Cree"
+    "englishName": "Cree"
   },
   {
     "code": "hr",
-    "name": "Croatian"
+    "englishName": "Croatian"
   },
   {
     "code": "cs",
-    "name": "Czech"
+    "englishName": "Czech"
   },
   {
     "code": "da",
-    "name": "Danish"
+    "englishName": "Danish"
   },
   {
     "code": "dv",
-    "name": "Divehi; Dhivehi; Maldivian;"
+    "englishName": "Divehi; Dhivehi; Maldivian;"
   },
   {
     "code": "nl",
-    "name": "Dutch"
+    "englishName": "Dutch"
   },
   {
     "code": "dz",
-    "name": "Dzongkha"
+    "englishName": "Dzongkha"
   },
   {
-    "code": "en",
-    "name": "English"
+    "codes": {
+      "639-1": "en",
+      "639-2": "eng",
+      "639-3": "eng"
+    },
+    "name": {
+      "en": "English"
+    },
+    "speakers": 360000000,
+    "location": [
+      {
+        "lat": 51.33,
+        "lon": -0.08,
+        "speakers": 58000000
+      }
+    ]
   },
   {
     "code": "eo",
-    "name": "Esperanto"
+    "englishName": "Esperanto"
   },
   {
     "code": "et",
-    "name": "Estonian"
+    "englishName": "Estonian"
   },
   {
     "code": "ee",
-    "name": "Ewe"
+    "englishName": "Ewe"
   },
   {
     "code": "fo",
-    "name": "Faroese"
+    "englishName": "Faroese"
   },
   {
     "code": "fj",
-    "name": "Fijian"
+    "englishName": "Fijian"
   },
   {
     "code": "fi",
-    "name": "Finnish"
+    "englishName": "Finnish"
   },
   {
     "code": "fr",
-    "name": "French"
+    "englishName": "French"
   },
   {
     "code": "ff",
-    "name": "Fula; Fulah; Pulaar; Pular"
+    "englishName": "Fula; Fulah; Pulaar; Pular"
   },
   {
     "code": "gl",
-    "name": "Galician"
+    "englishName": "Galician"
   },
   {
     "code": "ka",
-    "name": "Georgian"
+    "englishName": "Georgian"
   },
   {
     "code": "de",
-    "name": "German"
+    "englishName": "German"
   },
   {
     "code": "el",
-    "name": "Greek, Modern"
+    "englishName": "Greek, Modern"
   },
   {
     "code": "gn",
-    "name": "GuaranÃ­"
+    "englishName": "GuaranÃ­"
   },
   {
     "code": "gu",
-    "name": "Gujarati"
+    "englishName": "Gujarati"
   },
   {
     "code": "ht",
-    "name": "Haitian; Haitian Creole"
+    "englishName": "Haitian; Haitian Creole"
   },
   {
     "code": "ha",
-    "name": "Hausa"
+    "englishName": "Hausa"
   },
   {
     "code": "he",
-    "name": "Hebrew (modern)"
+    "englishName": "Hebrew (modern)"
   },
   {
     "code": "hz",
-    "name": "Herero"
+    "englishName": "Herero"
   },
   {
     "code": "hi",
-    "name": "Hindi"
+    "englishName": "Hindi"
   },
   {
     "code": "ho",
-    "name": "Hiri Motu"
+    "englishName": "Hiri Motu"
   },
   {
     "code": "hu",
-    "name": "Hungarian"
+    "englishName": "Hungarian"
   },
   {
     "code": "ia",
-    "name": "Interlingua"
+    "englishName": "Interlingua"
   },
   {
     "code": "id",
-    "name": "Indonesian"
+    "englishName": "Indonesian"
   },
   {
     "code": "ie",
-    "name": "Interlingue"
+    "englishName": "Interlingue"
   },
   {
     "code": "ga",
-    "name": "Irish"
+    "englishName": "Irish"
   },
   {
     "code": "ig",
-    "name": "Igbo"
+    "englishName": "Igbo"
   },
   {
     "code": "ik",
-    "name": "Inupiaq"
+    "englishName": "Inupiaq"
   },
   {
     "code": "io",
-    "name": "Ido"
+    "englishName": "Ido"
   },
   {
     "code": "is",
-    "name": "Icelandic"
+    "englishName": "Icelandic"
   },
   {
     "code": "it",
-    "name": "Italian"
+    "englishName": "Italian"
   },
   {
     "code": "iu",
-    "name": "Inuktitut"
+    "englishName": "Inuktitut"
   },
   {
     "code": "ja",
-    "name": "Japanese"
+    "englishName": "Japanese"
   },
   {
     "code": "jv",
-    "name": "Javanese"
+    "englishName": "Javanese"
   },
   {
     "code": "kl",
-    "name": "Kalaallisut, Greenlandic"
+    "englishName": "Kalaallisut, Greenlandic"
   },
   {
     "code": "kn",
-    "name": "Kannada"
+    "englishName": "Kannada"
   },
   {
     "code": "kr",
-    "name": "Kanuri"
+    "englishName": "Kanuri"
   },
   {
     "code": "ks",
-    "name": "Kashmiri"
+    "englishName": "Kashmiri"
   },
   {
     "code": "kk",
-    "name": "Kazakh"
+    "englishName": "Kazakh"
   },
   {
     "code": "km",
-    "name": "Khmer"
+    "englishName": "Khmer"
   },
   {
     "code": "ki",
-    "name": "Kikuyu, Gikuyu"
+    "englishName": "Kikuyu, Gikuyu"
   },
   {
     "code": "rw",
-    "name": "Kinyarwanda"
+    "englishName": "Kinyarwanda"
   },
   {
     "code": "ky",
-    "name": "Kyrgyz"
+    "englishName": "Kyrgyz"
   },
   {
     "code": "kv",
-    "name": "Komi"
+    "englishName": "Komi"
   },
   {
     "code": "kg",
-    "name": "Kongo"
+    "englishName": "Kongo"
   },
   {
     "code": "ko",
-    "name": "Korean"
+    "englishName": "Korean"
   },
   {
     "code": "ku",
-    "name": "Kurdish"
+    "englishName": "Kurdish"
   },
   {
     "code": "kj",
-    "name": "Kwanyama, Kuanyama"
+    "englishName": "Kwanyama, Kuanyama"
   },
   {
     "code": "la",
-    "name": "Latin"
+    "englishName": "Latin"
   },
   {
     "code": "lb",
-    "name": "Luxembourgish, Letzeburgesch"
+    "englishName": "Luxembourgish, Letzeburgesch"
   },
   {
     "code": "lg",
-    "name": "Ganda"
+    "englishName": "Ganda"
   },
   {
     "code": "li",
-    "name": "Limburgish, Limburgan, Limburger"
+    "englishName": "Limburgish, Limburgan, Limburger"
   },
   {
     "code": "ln",
-    "name": "Lingala"
+    "englishName": "Lingala"
   },
   {
     "code": "lo",
-    "name": "Lao"
+    "englishName": "Lao"
   },
   {
     "code": "lt",
-    "name": "Lithuanian"
+    "englishName": "Lithuanian"
   },
   {
     "code": "lu",
-    "name": "Luba-Katanga"
+    "englishName": "Luba-Katanga"
   },
   {
     "code": "lv",
-    "name": "Latvian"
+    "englishName": "Latvian"
   },
   {
     "code": "gv",
-    "name": "Manx"
+    "englishName": "Manx"
   },
   {
     "code": "mk",
-    "name": "Macedonian"
+    "englishName": "Macedonian"
   },
   {
     "code": "mg",
-    "name": "Malagasy"
+    "englishName": "Malagasy"
   },
   {
     "code": "ms",
-    "name": "Malay"
+    "englishName": "Malay"
   },
   {
     "code": "ml",
-    "name": "Malayalam"
+    "englishName": "Malayalam"
   },
   {
     "code": "mt",
-    "name": "Maltese"
+    "englishName": "Maltese"
   },
   {
     "code": "mi",
-    "name": "MÄori"
+    "englishName": "MÄori"
   },
   {
     "code": "mr",
-    "name": "Marathi (MarÄá¹­hÄ«)"
+    "englishName": "Marathi (MarÄá¹­hÄ«)"
   },
   {
     "code": "mh",
-    "name": "Marshallese"
+    "englishName": "Marshallese"
   },
   {
     "code": "mn",
-    "name": "Mongolian"
+    "englishName": "Mongolian"
   },
   {
     "code": "na",
-    "name": "Nauru"
+    "englishName": "Nauru"
   },
   {
     "code": "nv",
-    "name": "Navajo, Navaho"
+    "englishName": "Navajo, Navaho"
   },
   {
     "code": "nb",
-    "name": "Norwegian BokmÃ¥l"
+    "englishName": "Norwegian BokmÃ¥l"
   },
   {
     "code": "nd",
-    "name": "North Ndebele"
+    "englishName": "North Ndebele"
   },
   {
     "code": "ne",
-    "name": "Nepali"
+    "englishName": "Nepali"
   },
   {
     "code": "ng",
-    "name": "Ndonga"
+    "englishName": "Ndonga"
   },
   {
     "code": "nn",
-    "name": "Norwegian Nynorsk"
+    "englishName": "Norwegian Nynorsk"
   },
   {
     "code": "no",
-    "name": "Norwegian"
+    "englishName": "Norwegian"
   },
   {
     "code": "ii",
-    "name": "Nuosu"
+    "englishName": "Nuosu"
   },
   {
     "code": "nr",
-    "name": "South Ndebele"
+    "englishName": "South Ndebele"
   },
   {
     "code": "oc",
-    "name": "Occitan"
+    "englishName": "Occitan"
   },
   {
     "code": "oj",
-    "name": "Ojibwe, Ojibwa"
+    "englishName": "Ojibwe, Ojibwa"
   },
   {
     "code": "cu",
-    "name": "Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic"
+    "englishName": "Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic"
   },
   {
     "code": "om",
-    "name": "Oromo"
+    "englishName": "Oromo"
   },
   {
     "code": "or",
-    "name": "Oriya"
+    "englishName": "Oriya"
   },
   {
     "code": "os",
-    "name": "Ossetian, Ossetic"
+    "englishName": "Ossetian, Ossetic"
   },
   {
     "code": "pa",
-    "name": "Panjabi, Punjabi"
+    "englishName": "Panjabi, Punjabi"
   },
   {
     "code": "pi",
-    "name": "PÄli"
+    "englishName": "PÄli"
   },
   {
     "code": "fa",
-    "name": "Persian (Farsi)"
+    "englishName": "Persian (Farsi)"
   },
   {
     "code": "pl",
-    "name": "Polish"
+    "englishName": "Polish"
   },
   {
     "code": "ps",
-    "name": "Pashto, Pushto"
+    "englishName": "Pashto, Pushto"
   },
   {
     "code": "pt",
-    "name": "Portuguese"
+    "englishName": "Portuguese"
   },
   {
     "code": "qu",
-    "name": "Quechua"
+    "englishName": "Quechua"
   },
   {
     "code": "rm",
-    "name": "Romansh"
+    "englishName": "Romansh"
   },
   {
     "code": "rn",
-    "name": "Kirundi"
+    "englishName": "Kirundi"
   },
   {
     "code": "ro",
-    "name": "Romanian, [])"
+    "englishName": "Romanian, [])"
   },
   {
     "code": "ru",
-    "name": "Russian"
+    "englishName": "Russian"
   },
   {
     "code": "sa",
-    "name": "Sanskrit (Saá¹ská¹›ta)"
+    "englishName": "Sanskrit (Saá¹ská¹›ta)"
   },
   {
     "code": "sc",
-    "name": "Sardinian"
+    "englishName": "Sardinian"
   },
   {
     "code": "sd",
-    "name": "Sindhi"
+    "englishName": "Sindhi"
   },
   {
     "code": "se",
-    "name": "Northern Sami"
+    "englishName": "Northern Sami"
   },
   {
     "code": "sm",
-    "name": "Samoan"
+    "englishName": "Samoan"
   },
   {
     "code": "sg",
-    "name": "Sango"
+    "englishName": "Sango"
   },
   {
     "code": "sr",
-    "name": "Serbian"
+    "englishName": "Serbian"
   },
   {
     "code": "gd",
-    "name": "Scottish Gaelic; Gaelic"
+    "englishName": "Scottish Gaelic; Gaelic"
   },
   {
     "code": "sn",
-    "name": "Shona"
+    "englishName": "Shona"
   },
   {
     "code": "si",
-    "name": "Sinhala, Sinhalese"
+    "englishName": "Sinhala, Sinhalese"
   },
   {
     "code": "sk",
-    "name": "Slovak"
+    "englishName": "Slovak"
   },
   {
     "code": "sl",
-    "name": "Slovene"
+    "englishName": "Slovene"
   },
   {
     "code": "so",
-    "name": "Somali"
+    "englishName": "Somali"
   },
   {
     "code": "st",
-    "name": "Southern Sotho"
+    "englishName": "Southern Sotho"
   },
   {
     "code": "az",
-    "name": "South Azerbaijani"
+    "englishName": "South Azerbaijani"
   },
   {
-    "code": "es",
-    "name": "Spanish; Castilian"
+    "codes": {
+      "639-1": "es",
+      "639-2": "spa",
+      "639-3": "spa",
+      "Linguasphere": "51-AAA-b"
+    },
+    "name": {
+      "es": ["castellano", "español"],
+      "en": ["Spanish", "Castilian"]
+    },
+    "speakers": 38588817,
+    "location": {
+      "lat": 40.35,
+      "lon": -3.47
+    }
   },
   {
     "code": "su",
-    "name": "Sundanese"
+    "englishName": "Sundanese"
   },
   {
     "code": "sw",
-    "name": "Swahili"
+    "englishName": "Swahili"
   },
   {
     "code": "ss",
-    "name": "Swati"
+    "englishName": "Swati"
   },
   {
     "code": "sv",
-    "name": "Swedish"
+    "englishName": "Swedish"
   },
   {
     "code": "ta",
-    "name": "Tamil"
+    "englishName": "Tamil"
   },
   {
     "code": "te",
-    "name": "Telugu"
+    "englishName": "Telugu"
   },
   {
     "code": "tg",
-    "name": "Tajik"
+    "englishName": "Tajik"
   },
   {
     "code": "th",
-    "name": "Thai"
+    "englishName": "Thai"
   },
   {
     "code": "ti",
-    "name": "Tigrinya"
+    "englishName": "Tigrinya"
   },
   {
     "code": "bo",
-    "name": "Tibetan Standard, Tibetan, Central"
+    "englishName": "Tibetan Standard, Tibetan, Central"
   },
   {
     "code": "tk",
-    "name": "Turkmen"
+    "englishName": "Turkmen"
   },
   {
     "code": "tl",
-    "name": "Tagalog"
+    "englishName": "Tagalog"
   },
   {
     "code": "tn",
-    "name": "Tswana"
+    "englishName": "Tswana"
   },
   {
     "code": "to",
-    "name": "Tonga (Tonga Islands)"
+    "englishName": "Tonga (Tonga Islands)"
   },
   {
     "code": "tr",
-    "name": "Turkish"
+    "englishName": "Turkish"
   },
   {
     "code": "ts",
-    "name": "Tsonga"
+    "englishName": "Tsonga"
   },
   {
     "code": "tt",
-    "name": "Tatar"
+    "englishName": "Tatar"
   },
   {
     "code": "tw",
-    "name": "Twi"
+    "englishName": "Twi"
   },
   {
     "code": "ty",
-    "name": "Tahitian"
+    "englishName": "Tahitian"
   },
   {
     "code": "ug",
-    "name": "Uyghur, Uighur"
+    "englishName": "Uyghur, Uighur"
   },
   {
     "code": "uk",
-    "name": "Ukrainian"
+    "englishName": "Ukrainian"
   },
   {
     "code": "ur",
-    "name": "Urdu"
+    "englishName": "Urdu"
   },
   {
     "code": "uz",
-    "name": "Uzbek"
+    "englishName": "Uzbek"
   },
   {
     "code": "ve",
-    "name": "Venda"
+    "englishName": "Venda"
   },
   {
     "code": "vi",
-    "name": "Vietnamese"
+    "englishName": "Vietnamese"
   },
   {
     "code": "vo",
-    "name": "VolapÃ¼k"
+    "englishName": "VolapÃ¼k"
   },
   {
     "code": "wa",
-    "name": "Walloon"
+    "englishName": "Walloon"
   },
   {
     "code": "cy",
-    "name": "Welsh"
+    "englishName": "Welsh"
   },
   {
     "code": "wo",
-    "name": "Wolof"
+    "englishName": "Wolof"
   },
   {
     "code": "fy",
-    "name": "Western Frisian"
+    "englishName": "Western Frisian"
   },
   {
     "code": "xh",
-    "name": "Xhosa"
+    "englishName": "Xhosa"
   },
   {
     "code": "yi",
-    "name": "Yiddish"
+    "englishName": "Yiddish"
   },
   {
     "code": "yo",
-    "name": "Yoruba"
+    "englishName": "Yoruba"
   },
   {
     "code": "za",
-    "name": "Zhuang, Chuang"
+    "englishName": "Zhuang, Chuang"
   },
   {
     "code": "zu",
-    "name": "Zulu"
+    "englishName": "Zulu"
   }
 ]
