@@ -9,6 +9,9 @@ var languageUtils = languageUtils || {};
             var languageCode;
             if(language.codes) {
                 languageCode = language.codes["639-3"] || language.codes["639-2"] || language.codes["639-1"];
+                if(languageCode instanceof Array) {
+                    languageCode = languageCode[0];
+                }
             }
             else {
                 languageCode = language.code;

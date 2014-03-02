@@ -6,36 +6,87 @@ body {
 #map {
     height: 100%;        
 }
+.language-label {
+    overflow: visible;
+}
+.translation-container {
+    position: absolute;
+    top: -.5em;
+    width: auto;
+}
+.translation-container > * {
+    margin-left: -50%;
+}
+.translation-container > .translation,
+.translation-container > .placeholder {
+    box-sizing: border-box;
+    color: #FFF;
+    padding: 0 3px;
+    text-shadow: 0 0 3px #000;
+}
 .translation {
     background: transparent;
-    border: none;
-    color: #FFF;
     cursor: text;
-    padding-right: 3em;
-    text-shadow: 0 0 3px #000;
-    width: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: auto;
+    z-index: 10;
 }
-.translation + a[role="button"] {
-    background-color: #999999;
-    border: 1px solid #666666;
+.translation ~ a[role="button"] {
+    background-color: #7D7D7D;
     border-radius: 0 3px 3px 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
     color: #DDDDDD;
     display: none;
-    padding: 1px 0.3em 0;
+    padding: 1px 0.3em;
     position: absolute;
-    left: 118px;
-    top: 1px;
+    left: 99px;
+    top: -1px;
     text-decoration: none;
+    z-index: 20;
 }
-.translation + a[role="button"]:hover {
+.translation ~ a[role="button"]:hover {
     background-color: #666666;
+}
+.translation-container:hover .translation,
+.translation:focus {
+    border-right: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    text-shadow: none;
+    width: 100px;
+}
+.translation-container:hover .translation {
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    left: -1px;
+    margin-top: -1px;
 }
 .translation:focus {
     background: rgba(255, 255, 255, 0.5);
-    color: black;
-    border: 1px solid gray;
-    text-shadow: none;
 }
-.translation:focus + a[role="button"] {
+.translation-container:hover .translation:focus {
+    border: none;
+    left: 0;
+    margin-top: 0;
+}
+.translation-container:hover a[role="button"],
+.translation:focus ~ a[role="button"] {
     display: inline;
+}
+.translation ~ .placeholder {
+    cursor: text;
+    display: block;
+    opacity: 0;
+    width: auto;
+}
+.translation:empty ~ .placeholder {
+    opacity: 0.5;
+}
+.translation:focus ~ .placeholder {
+    opacity: 0;
 }

@@ -35,17 +35,17 @@ var languageUtils = languageUtils || {};
         }
     };
     
-    translation = {
+    polyglot.translation = {
         translate: function(options) {
-            var sourceLanguageCode = languageUtils.getLanguageCode(options.from);
+            var sourceLanguageCode = options.from;
             if(typeof options.to === "undefined") {
                 for(var i = 0; i < translation.languages.length; i++) {
                     var language = translation.languages[i];
                     if(typeof language.location !== "undefined" && sourceLanguageCode !== languageUtils.getLanguageCode(language)) {
-                        translation.translate({
+                        this.translate({
                             from: options.from,
                             text: options.text,
-                            to: language,
+                            to: languageUtils.getLanguageCode(language),
                             callback: options.callback
                         });
                     }
@@ -53,32 +53,30 @@ var languageUtils = languageUtils || {};
             }
             else {
                 var translatedText = "";
-                var targetLanguageCode = languageUtils.getLanguageCode(options.to);
-                if(targetLanguageCode) {
-                    var url = "http://glosbe.com/gapi/translate?from=" + sourceLanguageCode + "&dest=" + targetLanguageCode + "&format=json&phrase=" + options.text + "&callback=JSONPCallback&pretty=true";
-                    jsonp.fetch(url, function(data){
-                        console.log(data);
-                        if(typeof data.tuc === "undefined") {
-                            elem.value = "";
-                        }
-                        else {
-                            if(data.tuc instanceof Array) {
-                                if(data.tuc.length > 0) {
-                                    if(data.tuc[0].phrase) {
-                                        translatedText = data.tuc[0].phrase.text;
-                                    }
+                var targetLanguageCode = options.to;
+                var url = "http://glosbe.com/gapi/translate?from=" + sourceLanguageCode + "&dest=" + targetLanguageCode + "&format=json&phrase=" + options.text + "&callback=JSONPCallback&pretty=true";
+                jsonp.fetch(url, function(data){
+                    console.log(data);
+                    if(typeof data.tuc === "undefined") {
+                        elem.value = "";
+                    }
+                    else {
+                        if(data.tuc instanceof Array) {
+                            if(data.tuc.length > 0) {
+                                if(data.tuc[0].phrase) {
+                                    translatedText = data.tuc[0].phrase.text;
                                 }
                             }
-                            else {
-                                translatedText = data.tuc.phrase.text;
-                            }
                         }
-                        options.callback({
-                            to: options.to,
-                            translatedText: translatedText
-                        });
+                        else {
+                            translatedText = data.tuc.phrase.text;
+                        }
+                    }
+                    options.callback({
+                        to: options.to,
+                        translatedText: translatedText
                     });
-                }
+                });
             }
         }
     };

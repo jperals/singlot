@@ -36,6 +36,7 @@ polyglot.interface = polyglot.interface || {};
                 }
             }
         }
+        polyglot.interface.initInteractions();
     };
         
     window.onload = function() {

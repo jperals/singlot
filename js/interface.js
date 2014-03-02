@@ -1,4 +1,5 @@
-var polyglot = polyglot || {};    
+var polyglot = polyglot || {};
+polyglot.translation = polyglot.translation || {};
 
 (function() {
         
@@ -12,48 +13,72 @@ var polyglot = polyglot || {};
                 var languageCode = languageUtils.getLanguageCode(language);
                 var languageIcon = L.divIcon({
                     className: 'language-label',
-                    html: '<input type="text" class="translation language-' + languageCode + '" placeholder="' + languageName + '" /><a href="#" role="button">Go</a>'
+                    html: '<div class="translation-container empty" data-language="' + languageCode + '"><div contenteditable="true" class="translation language-' + languageCode + '"></div><div class="placeholder">' + languageName + '</div><a href="#" role="button">Go</a></div>'
                 });
                 var marker = L.marker([markerLocation.lat, markerLocation.lon], {
+                    clickable: false,
                     icon: languageIcon,
                     title: 'Write something in ' + languageName
                 });
-                var onClick = function(event) {
-                    var elements = document.querySelectorAll('.translation.language-' + languageUtils.getLanguageCode(this.language));
-                    for(var i in elements) {
-                        var e = elements.item(i);
-                        e.classList.add('active');
-                        e.focus();
-                        //var button = e.parentElement.querySelector('a[role="button"]');
-                        var sourceLanguage = this.language;
-                        var originalValue = e.value;
-                        e.onblur = function() {
-                            console.log('click');
-                            e.classList.remove('active');
-                            if(e.value !== originalValue) {
-                                translation.translate({
-                                    from: sourceLanguage,
-                                    text: e.value,
-                                    callback: function(options) {
-                                        if(options.to && options.translatedText) {
-                                            var elem = document.querySelector('.translation.language-' + languageUtils.getLanguageCode(options.to));
-                                            if(elem) {
-                                                elem.value = options.translatedText;
-                                            }
-                                        }
-                                    }
-                                });
-                            }
-                        };
-                    }
-                };
                 marker.language = language;
-                marker.on('click', onClick);
-                if(typeof this.map !== "undefined") {
-                    marker.addTo(this.map);
+                   /*marker.on('click', onClick);*/
+                   if(typeof this.map !== "undefined") {
+                       marker.addTo(this.map);
+                   }
+                   else {
+                       window.console && console.warn('Variable map is undefined. Could not initialize Leaflet map');
+                   }
+              }
+        },
+        
+        initInteractions: function() {
+            var onPlaceholderClick = function(event) {
+                console.log('clicked on placeholder');
+                var container = this.parentElement;
+                var input = container.querySelector('.translation');
+                input.blur(); // Without previously blurring the field, focusing it would mysteriously not work
+                input.focus();
+            };
+            var onTextClick = function(event) {
+                console.log('clicked on input field');
+                this.blur(); // Without previously blurring the field, focusing it would mysteriously not work
+                this.focus();
+            };
+            var onButtonClick = function(event) {
+                console.log('clicked on button');
+                var container = this.parentElement;
+                var input = container.querySelector('.translation');
+                var sourceLanguage = container.getAttribute('data-language');
+                polyglot.translation.translate({
+                    from: sourceLanguage,
+                    text: input.innerText,
+                    callback: function(options) {
+                        if(options.to && options.translatedText) {
+                            var elements = document.querySelectorAll('.translation.language-' + options.to);
+                            for(var j in elements) {
+                                var elem = elements.item(j);
+                                if(elem) {
+                                    elem.innerHTML = options.translatedText;
+                                }
+                            }
+                        }
+                    }
+                });
+            };
+            var translationTags = document.querySelectorAll('.translation-container');
+            for(var i in translationTags) {
+                var tag = translationTags.item(i);
+                var input = tag.querySelector('.translation');
+                if(input) {
+                    input.onclick = onTextClick;
                 }
-                else {
-                    console.log('map is undefined');
+                var placeholder = tag.querySelector('.placeholder');
+                if(placeholder) {
+                    placeholder.onclick = onPlaceholderClick;
+                }
+                var button = tag.querySelector('a[role="button"]');
+                if(button) {
+                    button.onclick = onButtonClick;
                 }
             }
         }
