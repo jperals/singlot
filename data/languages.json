@@ -50,7 +50,7 @@
     "speakers": 7500000,
     "location": {
       "lat": 41,
-      "lon": 19
+      "lon": 20
     }
   },
   {
@@ -171,8 +171,14 @@
     }
   },
   {
-    "code": "eu",
-    "englishName": "Basque",
+    "codes": {
+      "639-1": "eu",
+      "639-2": ["baq", "eus"],
+      "639-3": "eus"
+    },
+    "name": {
+      "en": "Basque"
+    },
     "speakers": 665800,
     "location": {
       "lat": 43,
@@ -230,7 +236,10 @@
   },
   {
     "code": "br",
-    "englishName": "Breton",
+    "name": {
+      "br": "brezhoneg",
+      "en": "Breton"
+    },
     "speakers": 206000,
     "location": {
       "lat": 48,
@@ -380,8 +389,21 @@
     "englishName": "Finnish"
   },
   {
-    "code": "fr",
-    "englishName": "French"
+    "codes": {
+      "639-1": "fr",
+      "639-2": "fre",
+      "639-3": "fra",
+      "Linguasphere": "51-AAA-i"
+    },
+    "name": {
+      "en": "French",
+      "fr": "Français"
+    },
+    "location": {
+      "lat": 48.6,
+      "lon": 2.34,
+      "geoName": "Paris"
+    }
   },
   {
     "code": "ff",
@@ -389,7 +411,15 @@
   },
   {
     "code": "gl",
-    "englishName": "Galician"
+    "name": {
+      "en": "Galician",
+      "gl": "galego"
+    },
+    "location": {
+      "lat": 42.15,
+      "lon": -8.48,
+      "name": "Vigo"
+    }
   },
   {
     "code": "ka",
@@ -397,7 +427,15 @@
   },
   {
     "code": "de",
-    "englishName": "German"
+    "name": {
+      "de": "Deutsch",
+      "en": "German"
+    },
+    "location": {
+      "lat": 50.60,
+      "lon": 6.61,
+      "name": "Köln"
+    }
   },
   {
     "code": "el",
@@ -473,7 +511,15 @@
   },
   {
     "code": "it",
-    "englishName": "Italian"
+    "name": {
+      "en": "Italian",
+      "it": "italiano"
+    },
+    "location": {
+      "lat": 41.59,
+      "lon": 12.33,
+      "name": "Rome"
+    }
   },
   {
     "code": "iu",
@@ -660,8 +706,21 @@
     "englishName": "South Ndebele"
   },
   {
-    "code": "oc",
-    "englishName": "Occitan"
+    "codes": {
+      "639-1": "oc",
+      "639-2": "oci",
+      "639-3": "oci",
+      "Linguasphere": ["51-AAA-g", "51-AAA-f"]
+    },
+    "name": {
+      "en": "Occitan",
+      "oc": ["occitan", "lenga d'òc"]
+    },
+    "location": {
+      "lat": 43.6,
+      "lon": 1.44,
+      "geoName": "Toulouse"
+    }
   },
   {
     "code": "oj",
@@ -705,7 +764,14 @@
   },
   {
     "code": "pt",
-    "englishName": "Portuguese"
+    "name": {
+      "en": "Portuguese"
+    },
+    "location": {
+      "lat": 38.5,
+      "lon": -9.09,
+      "name": "Lisboa"
+    }
   },
   {
     "code": "qu",
@@ -732,8 +798,20 @@
     "englishName": "Sanskrit (Saá¹ská¹›ta)"
   },
   {
-    "code": "sc",
-    "englishName": "Sardinian"
+    "codes": {
+      "639-1": "sc",
+      "639-2": "srd",
+      "639-3": ["sro", "src"],
+      "Linguasphere": ["51-AAA-s", "51-AAA-pd", "51-AAA-pe"]
+    },
+    "name": {
+      "en": "Sardinian"
+    },
+    "location": {
+      "lat": 39.16,
+      "lon": 9.03,
+      "name": "Cagliari"
+    }
   },
   {
     "code": "sd",
