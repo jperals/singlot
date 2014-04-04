@@ -3,7 +3,7 @@ polyglot.translation = polyglot.translation || {};
 
 (function() {
         
-    polyglot.interface = {
+    polyglot.ui = {
         
         addLanguageTag: function(language, markerLocation) {
             var markerLocation = markerLocation || language.location;
