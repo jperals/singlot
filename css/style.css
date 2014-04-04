@@ -26,6 +26,8 @@ body {
 }
 .translation {
     background: transparent;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
     cursor: text;
     position: absolute;
     left: 0;
@@ -61,8 +63,6 @@ body {
 .translation-container:hover .translation {
     background: rgba(255, 255, 255, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
     left: -1px;
     margin-top: -1px;
 }
