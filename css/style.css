@@ -90,3 +90,13 @@ body {
 .translation:focus ~ .placeholder {
     opacity: 0;
 }
+@-moz-document url-prefix() {
+    .translation {
+        height: 1.5em;
+    }
+    .translation:focus {
+        border: 1px solid rgba(255, 255, 255, .75) !important;
+        top: -1px;
+        outline: none;
+    }
+}
