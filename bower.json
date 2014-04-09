@@ -1,0 +1,19 @@
+{
+  "name": "polyglobe",
+  "version": "0.1",
+  "authors": [
+    "Joan Perals Tresserra <j.pertres@gmail.com>"
+  ],
+  "description": "Simultaneous multi-language translation tool",
+  "keywords": [
+    "languages",
+    "translation",
+    "maps",
+    "leaflet"
+  ],
+  "license": "AGPL",
+  "private": true,
+  "dependencies": {
+    "angular-leaflet": "~0.7.6"
+  }
+}
