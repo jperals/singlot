@@ -1,4 +1,23 @@
-var translation = translation || {};
+var app = angular.module("transglobe", ['leaflet-directive'])
+
+    .controller("transglobeController", [ "$scope", function($scope) {
+            
+        angular.extend($scope, {
+            defaults: {
+                tileLayer: 'http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png',
+            },
+            europe: {
+                lat: 52.5,
+                lng: 2,
+                zoom: 4
+            }
+        });
+        
+    }])
+    
+    ;
+
+/*var translation = translation || {};
 var languageUtils = languageUtils || {};
 var polyglot = polyglot || {};
 polyglot.ui = polyglot.ui || {};
@@ -45,3 +64,4 @@ polyglot.ui = polyglot.ui || {};
     };
     
 })();
+*/
