@@ -1,9 +1,15 @@
 var app = angular.module('transglobe', ['leaflet-directive'])
 
-    .controller('transglobeController', [ '$scope', 'languageMarkersFactory', function($scope, languageMarkersFactory) {
+    .controller('transglobeController', [ '$scope', '$element', '$compile', '$timeout', 'languageMarkersFactory', function($scope, $element, $compile, $timeout, languageMarkersFactory) {
         
         languageMarkersFactory.getLanguageMarkers().then(function(markers) {
-            $scope.markers = markers;
+            angular.extend($scope, {
+                markers: markers
+            });
+            $timeout(function() {
+                var compiledContent = $compile($element.contents())($scope);
+                $element.html('').append(compiledContent);
+            }, 300);
         });
 
         angular.extend($scope, {
@@ -20,7 +26,7 @@ var app = angular.module('transglobe', ['leaflet-directive'])
         
     }])
     
-    .factory('languageMarkersFactory', [ '$http', '$q', 'languageService', function($http, $q, languageService) {
+    .factory('languageMarkersFactory', [ '$http', '$q' , 'languageService', function($http, $q, languageService) {
 
         var getMarkerFromLanguage = function(language, opt_location) {
             var markerLocation = opt_location || language.location;
@@ -29,7 +35,7 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                 var languageCode = languageService.getLanguageCode(language);
                 var languageIcon = {
                     className: 'language-label',
-                    html: '<div class="translation-container empty" data-language="' + languageCode + '"><div contenteditable="true" class="translation language-' + languageCode + '"></div><div class="placeholder">' + languageName + '</div><a href="#" role="button">Go</a></div>',
+                    html: '<div class="translation-container empty" data-language="' + languageCode + '" data-languagename="' + languageName + '"></div>',
                     type: 'div'
                 };
                 var marker = {
@@ -120,53 +126,54 @@ var app = angular.module('transglobe', ['leaflet-directive'])
         
     })
     
-    ;
-
-/*var translation = translation || {};
-var languageUtils = languageUtils || {};
-var polyglot = polyglot || {};
-polyglot.ui = polyglot.ui || {};
-
-(function() {
-    
-    var initMap = function() {
-        var cloudmadeUrl = 'http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png',
-        cloudmade = new L.TileLayer(cloudmadeUrl, {maxZoom: 18});
-        polyglot.ui.map = new L.Map('map', {layers: [cloudmade], center: new L.LatLng(52.5, 2), zoom: 4 });
-    };
-    
-    var loadData = function() {
-        var xhReq = new XMLHttpRequest();
-        xhReq.open("GET", "data/languages.json", false);
-        xhReq.onload = function() {
-            onDataLoad(xhReq.responseText);
-        };
-        xhReq.send(null);
-    };
-    
-    var onDataLoad = function(data) {
-        var languages = JSON.parse(data);
-        translation.languages = languages;
-        for(var index in languages) {
-            var language = languages[index];
-            if(typeof language.name !== "undefined" && typeof language.location !== "undefined") {
-                if(language.location instanceof Array) {
-                    for(var i in language.location) {
-                        polyglot.ui.addLanguageTag(language, language.location[i]);
-                    }
-                }
-                else {
-                    polyglot.ui.addLanguageTag(language);
-                }
-            }
-        }
-        polyglot.ui.initInteractions();
-    };
+    .directive('translationContainer', function() {
         
-    window.onload = function() {
-        initMap();
-        loadData();
-    };
+        return {
+            replace: false,
+            restrict: 'C',
+            scope: true,
+            template: '<div contenteditable="true" class="translation language-{{languageCode}}" ng-click="onTextClick()"></div><div class="placeholder" ng-click="onPlaceHolderClick()">{{languageName}}</div><a href="#" role="button" ng-click="onButtonClick()">Go</a>',
+            link: function(scope, element, attrs) {
+                console.log('directive link');
+                scope.languageCode = attrs.language;
+                scope.languageName = attrs.languagename;
+                scope.onPlaceholderClick = function(event) {
+                   console.log('clicked on placeholder');
+                   var container = this.parentElement;
+                   var input = container.querySelector('.translation');
+                   input.blur(); // Without previously blurring the field, focusing it would mysteriously not work
+                   input.focus();
+                };
+                scope.onTextClick = function(event) {
+                    console.log('clicked on input field');
+                    this.blur(); // Without previously blurring the field, focusing it would mysteriously not work
+                    this.focus();
+                };
+                scope.onButtonClick = function(event) {
+                    console.log('clicked on button');
+                    var container = this.parentElement;
+                    var input = container.querySelector('.translation');
+                    var sourceLanguage = container.getAttribute('data-language');
+                    polyglot.translation.translate({
+                        from: sourceLanguage,
+                        text: input.innerText,
+                        callback: function(options) {
+                            if(options.to && options.translatedText) {
+                                var elements = document.querySelectorAll('.translation.language-' + options.to);
+                                for(var j in elements) {
+                                    var elem = elements.item(j);
+                                    if(elem) {
+                                        elem.innerHTML = options.translatedText;
+                                    }
+                                }
+                            }
+                        }
+                    });
+                };
+        
+            }
+        };
+               
+    })
     
-})();
-*/
+    ;
