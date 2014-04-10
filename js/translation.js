@@ -1,3 +1,4 @@
+var polyglot = polyglot || {};
 var translation = translation || {};
 var languageUtils = languageUtils || {};
 
