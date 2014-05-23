@@ -1,33 +1,40 @@
 var app = angular.module('transglobe', ['leaflet-directive'])
 
-    .controller('transglobeController', [ '$scope', '$element', '$compile', '$timeout', 'languageMarkersFactory', function($scope, $element, $compile, $timeout, languageMarkersFactory) {
-        
-        languageMarkersFactory.getLanguageMarkers().then(function(markers) {
-            angular.extend($scope, {
-                markers: markers
-            });
-            $timeout(function() {
-                var compiledContent = $compile($element.contents())($scope);
-                $element.html('').append(compiledContent);
-            }, 300);
-        });
-
-        angular.extend($scope, {
-            defaults: {
-                tileLayer: 'http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png',
-            },
-            europe: {
-                lat: 52.5,
-                lng: 2,
-                zoom: 4
-            },
-            markers: []
-        });
-        
+    .directive('transglobeMap', ['languageMarkersFactory', function(languageMarkersFactory) {
+        return {
+            restrict: 'C',
+            replace: true,
+            scope: false,
+            template: '<div id="map-wrapper" ng-if="showMap">' +
+                      '<leaflet center="europe" defaults="defaults" event-broadcast="events" id="map" markers="markers"></leaflet>' +
+                      '</div>',
+            link: function(scope) {
+                languageMarkersFactory.getLanguageMarkersPromise().then(function(markers) {
+                    angular.extend(scope, {
+                        defaults: {
+                            tileLayer: 'http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png'
+                        },
+                        europe: {
+                            lat: 52.5,
+                            lng: 2,
+                            zoom: 4
+                        },
+                        events: {
+                            markers: {
+                                enable: ['click'],
+                                logic: 'emit'
+                            }
+                        },
+                        markers: markers
+                    });
+                    scope.showMap = true;
+                });
+            }
+        };
     }])
     
     .factory('languageMarkersFactory', [ '$http', '$q' , 'languageService', function($http, $q, languageService) {
-
+            
         var getMarkerFromLanguage = function(language, opt_location) {
             var markerLocation = opt_location || language.location;
             if(typeof markerLocation !== "undefined") {
@@ -35,7 +42,11 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                 var languageCode = languageService.getLanguageCode(language);
                 var languageIcon = {
                     className: 'language-label',
-                    html: '<div class="translation-container empty" data-language="' + languageCode + '" data-languagename="' + languageName + '"></div>',
+                    html: '<div class="translation-container empty" data-language="' + languageCode + '" data-languagename="' + languageName + '">' +
+                          '<div contenteditable="true" class="translation language-' + languageCode + '""></div>' +
+                          '<div class="placeholder">' + languageName + '</div>' +
+                          '<a href="#" role="button">Go</a>' +
+                          '</div>',
                     type: 'div'
                 };
                 var marker = {
@@ -82,7 +93,7 @@ var app = angular.module('transglobe', ['leaflet-directive'])
         ;
 
         return {
-            getLanguageMarkers: function() {
+            getLanguageMarkersPromise: function() {
                 return deferred.promise;
             }
         };
@@ -139,20 +150,21 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                 scope.languageName = attrs.languagename;
                 scope.onPlaceholderClick = function(event) {
                    console.log('clicked on placeholder');
-                   var container = this.parentElement;
-                   var input = container.querySelector('.translation');
-                   input.blur(); // Without previously blurring the field, focusing it would mysteriously not work
-                   input.focus();
+                   var container = element.parentElement;
+                   //var input = element;
+                   //input.blur(); // Without previously blurring the field, focusing it would mysteriously not work
+                   //element[0].blur();
+                   element[0].focus();
                 };
                 scope.onTextClick = function(event) {
                     console.log('clicked on input field');
-                    this.blur(); // Without previously blurring the field, focusing it would mysteriously not work
-                    this.focus();
+                    //this.blur(); // Without previously blurring the field, focusing it would mysteriously not work
+                    element[0].focus();
                 };
                 scope.onButtonClick = function(event) {
                     console.log('clicked on button');
-                    var container = this.parentElement;
-                    var input = container.querySelector('.translation');
+                    var container = element.parentElement;
+                    var input = element;
                     var sourceLanguage = container.getAttribute('data-language');
                     polyglot.translation.translate({
                         from: sourceLanguage,
@@ -170,7 +182,15 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                         }
                     });
                 };
-        
+                /*element.bind('click', function() {
+                    scope.onPlaceholderClick();
+                });*/
+            },
+            controller: function($scope, $element) {
+               $scope.$on('leafletDirectiveMarker.click', function(event, args) {
+                    console.log( 'marker name: ' + $scope.markers[args.markerName]);
+                    $scope.onPlaceholderClick();
+                });
             }
         };
                

@@ -3,6 +3,8 @@ body {
     height: 100%;
     margin: 0;        
 }
+.transglobeMap,
+#map-wrapper,
 #map {
     height: 100%;        
 }
