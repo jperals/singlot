@@ -6,7 +6,7 @@ var app = angular.module('transglobe', ['leaflet-directive'])
             replace: true,
             scope: false,
             template: '<div id="map-wrapper" ng-if="showMap">' +
-                      '<leaflet center="europe" defaults="defaults" event-broadcast="events" id="map" markers="markers"></leaflet>' +
+                      '<leaflet center="europe" defaults="defaults" id="map" markers="markers" event-broadcast="events"></leaflet>' +
                       '</div>',
             link: function(scope) {
                 languageMarkersFactory.getLanguageMarkersPromise().then(function(markers) {
@@ -29,28 +29,37 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                     });
                     scope.showMap = true;
                 });
+            },
+            controller: function($scope) {
+                $scope.$on('leafletDirectiveMarker.click', function(event, args) {
+                    console.log( 'marker name: ' + args.markerName);
+                    console.log( 'marker: ' + $scope.markers[args.markerName]);
+                    var inputField = angular.element(document.querySelector('.translation.language-' + args.markerName))[0];
+                    inputField.focus();
+                });
             }
         };
     }])
     
     .factory('languageMarkersFactory', [ '$http', '$q' , 'languageService', function($http, $q, languageService) {
             
-        var getMarkerFromLanguage = function(language, opt_location) {
-            var markerLocation = opt_location || language.location;
+        var getMarkerFromLanguage = function(language, i) {
+            var markerLocation = ( typeof i === "undefined" ) ? language.location : language.location[i];
             if(typeof markerLocation !== "undefined") {
-                var languageName = languageService.getLanguageName(language);
-                var languageCode = languageService.getLanguageCode(language);
+                var languageName = languageService.getLanguageName(language),
+                    languageCode = languageService.getLanguageCode(language);
+                var languageCodeLocal = ( typeof i === "undefined" ) ? languageCode : languageCode + '_' + i;
                 var languageIcon = {
                     className: 'language-label',
                     html: '<div class="translation-container empty" data-language="' + languageCode + '" data-languagename="' + languageName + '">' +
-                          '<div contenteditable="true" class="translation language-' + languageCode + '""></div>' +
+                          '<div contenteditable="true" class="translation language-' + languageCodeLocal + '""></div>' +
                           '<div class="placeholder">' + languageName + '</div>' +
                           '<a href="#" role="button">Go</a>' +
                           '</div>',
                     type: 'div'
                 };
                 var marker = {
-                    clickable: false,
+                    clickable: true,
                     icon: languageIcon,
                     lat: markerLocation.lat,
                     lng: markerLocation.lon,
@@ -70,7 +79,7 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                     var languageCode = languageService.getLanguageCode(language);
                     if(location instanceof Array) {
                         for(var i = 0, n = location.length; i < n; i++) {
-                            var marker = getMarkerFromLanguage(language, location[i]);
+                            var marker = getMarkerFromLanguage(language, i);
                             markers[languageCode + '_' + i] = marker;
                         }
                     }
