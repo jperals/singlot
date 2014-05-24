@@ -1,6 +1,6 @@
 var app = angular.module('transglobe', ['leaflet-directive'])
 
-    .directive('transglobeMap', ['languageMarkersFactory', function(languageMarkersFactory) {
+    .directive('transglobeMap', ['languageMarkersFactory', 'translationService', function(languageMarkersFactory, translationService) {
         return {
             restrict: 'C',
             replace: true,
@@ -37,11 +37,12 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                     var inputField = angular.element(document.querySelector('.translation.language-' + args.markerName))[0];
                     inputField.focus();
                 });
+                $scope.translate = translationService.translate;
             }
         };
     }])
     
-    .factory('languageMarkersFactory', [ '$http', '$q' , 'languageService', function($http, $q, languageService) {
+    .factory('languageMarkersFactory', [ '$q' , 'languageService', function($q, languageService) {
             
         var getMarkerFromLanguage = function(language, i) {
             var markerLocation = ( typeof i === "undefined" ) ? language.location : language.location[i];
@@ -52,14 +53,13 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                 var languageIcon = {
                     className: 'language-label',
                     html: '<div class="translation-container empty" data-language="' + languageCode + '" data-languagename="' + languageName + '">' +
-                          '<div contenteditable="true" class="translation language-' + languageCodeLocal + '""></div>' +
+                          '<div contenteditable="true" class="translation language-' + languageCodeLocal + '"></div>' +
                           '<div class="placeholder">' + languageName + '</div>' +
-                          '<a href="#" role="button">Go</a>' +
+                          '<a href="#" onclick="console.log(\'click!\');translateToAll(this)" role="button">Go</a>' +
                           '</div>',
                     type: 'div'
                 };
                 var marker = {
-                    clickable: true,
                     icon: languageIcon,
                     lat: markerLocation.lat,
                     lng: markerLocation.lon,
@@ -94,9 +94,8 @@ var app = angular.module('transglobe', ['leaflet-directive'])
 
         var deferred = $q.defer();
         
-        $http.get('data/languages.json')
-            .success(function(response) {
-                var markers = getMarkersFromLanguages(response);
+        languageService.getLanguagesPromise().then(function(languages) {
+                var markers = getMarkersFromLanguages(languages);
                 deferred.resolve(markers);
             })
         ;
@@ -109,9 +108,18 @@ var app = angular.module('transglobe', ['leaflet-directive'])
 
     }])
 
-    .service('languageService', function() {
+    .service('languageService', ['$http', '$q', function($http, $q) {
 
-        var visitorLanguage = "en";
+        var deferred = $q.defer(),
+            languages,
+            visitorLanguage = "en";
+
+        $http.get('data/languages.json')
+            .success(function(response) {
+                languages = response;
+                deferred.resolve(response);
+            })
+        ;
 
         return {
             getLanguageCode: function(language) {
@@ -141,12 +149,18 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                     }
                 }
                 return languageName;
+            },
+            getLanguages: function() {
+                return languages;
+            },
+            getLanguagesPromise: function() {
+                return deferred.promise;
             }
         };
         
-    })
+    }])
     
-    .directive('translationContainer', function() {
+    .directive('translationContainer', ['translationService', function(translationService) {
         
         return {
             replace: false,
@@ -175,7 +189,7 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                     var container = element.parentElement;
                     var input = element;
                     var sourceLanguage = container.getAttribute('data-language');
-                    polyglot.translation.translate({
+                    translationService.translate({
                         from: sourceLanguage,
                         text: input.innerText,
                         callback: function(options) {
@@ -203,6 +217,113 @@ var app = angular.module('transglobe', ['leaflet-directive'])
             }
         };
                
-    })
+    }])
+    
+    .service('translationService', ['languageService', function(languageService) {
+        var jsonp = {
+            callbackCounter: 0,
+
+            fetch: function(url, callback) {
+                var fn = 'JSONPCallback_' + this.callbackCounter++;
+                window[fn] = this.evalJSONP(callback);
+                url = url.replace('=JSONPCallback', '=' + fn);
+
+                var scriptTag = document.createElement('SCRIPT');
+                scriptTag.src = url;
+                document.getElementsByTagName('HEAD')[0].appendChild(scriptTag);
+            },
+
+            evalJSONP: function(callback) {
+                return function(data) {
+                    var validJSON = false;
+                if (typeof data === "string") {
+                    try {validJSON = JSON.parse(data);} catch (e) {
+                        /*invalid JSON*/}
+                } else {
+                    validJSON = JSON.parse(JSON.stringify(data));
+                        window.console && console.warn(
+                        'response data was not a JSON string');
+                    }
+                    if (validJSON) {
+                        callback(validJSON);
+                    } else {
+                        throw("JSONP call returned invalid or empty JSON");
+                    }
+                };
+            }
+        };
+        return {
+            translate: function(options) {
+                var languages = languageService.getLanguages(),
+                    sourceLanguageCode = options.from;
+                if(typeof languages === "undefined") return;
+                if(typeof options.to === "undefined") {
+                    for(var i = 0; i < languages.length; i++) {
+                        var language = languages[i];
+                        if(typeof language.location !== "undefined" && sourceLanguageCode !== languageService.getLanguageCode(language)) {
+                            this.translate({
+                                from: options.from,
+                                text: options.text,
+                                to: languageService.getLanguageCode(language),
+                                callback: options.callback
+                            });
+                        }
+                    }
+                }
+                else {
+                    var translatedText = "";
+                    var targetLanguageCode = options.to;
+                    var url = "http://glosbe.com/gapi/translate?from=" + sourceLanguageCode + "&dest=" + targetLanguageCode + "&format=json&phrase=" + options.text + "&callback=JSONPCallback&pretty=true";
+                    jsonp.fetch(url, function(data){
+                        console.log(data);
+                        if(typeof data.tuc === "undefined") {
+                            elem.value = "";
+                        }
+                        else {
+                            if(data.tuc instanceof Array) {
+                                if(data.tuc.length > 0) {
+                                    if(data.tuc[0].phrase) {
+                                        translatedText = data.tuc[0].phrase.text;
+                                    }
+                                }
+                            }
+                            else {
+                                translatedText = data.tuc.phrase.text;
+                            }
+                        }
+                        options.callback({
+                            to: options.to,
+                            translatedText: translatedText
+                        });
+                    });
+                }
+            }
+        };
+    }])
     
     ;
+
+var translateToAll = function(element) {
+    var from = element.parentElement.getAttribute('data-language'),
+        text = element.parentElement.children[0].innerText;
+    console.log('translate: ' + text);
+    var callback = function(options) {
+        if(options.to && options.translatedText) {
+            var elements = document.querySelectorAll('.translation.language-' + options.to);
+            for(var j in elements) {
+                var elem = elements.item(j);
+                if(elem) {
+                    elem.innerHTML = options.translatedText;
+                }
+            }
+        }
+    };
+    var languageMap = document.querySelector('.transglobeMap');
+    var scope = angular.element(languageMap).scope();
+    var options = {
+        callback: callback,
+        from: from,
+        text: text
+    };
+    scope.translate(options);
+};
