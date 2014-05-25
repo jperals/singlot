@@ -63,7 +63,7 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                     icon: languageIcon,
                     lat: markerLocation.lat,
                     lng: markerLocation.lon,
-                    title: 'Write something in ' + languageName
+                    title: languageName
                 };
                 marker.language = language;
                 return marker;

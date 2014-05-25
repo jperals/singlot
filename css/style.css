@@ -85,6 +85,7 @@ body {
     cursor: text;
     display: block;
     opacity: 0;
+    white-space: nowrap;
     width: auto;
 }
 .translation:empty ~ .placeholder {
