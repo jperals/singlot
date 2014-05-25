@@ -137,10 +137,12 @@
   },
   {
     "code": "az",
-    "englishName": "Azerbaijani",
+    "name": {
+      "en": "Azerbaijani"
+    },
     "speakers": 20000000,
     "location": {
-      "lat": 38,
+      "lat": 38.9,
       "lon": 48
     }
   },
@@ -154,20 +156,13 @@
   },
   {
     "code": "bjs",
-    "englishName": "Bajan",
+    "name": {
+      "en": "Bajan"
+    },
     "speakers": 259000,
     "location": {
       "lat": 13,
       "lon": -60
-    }
-  },
-  {
-    "code": "rmn",
-    "englishName": "Balkan Romani",
-    "speakers": 709570,
-    "location": {
-      "lat": 45,
-      "lon": 20
     }
   },
   {
@@ -187,7 +182,9 @@
   },
   {
     "code": "be",
-    "englishName": "Belarusian",
+    "name": {
+      "en": "Belarusian"
+    },
     "speakers": 9100000,
     "location": {
       "lat": 53,
@@ -196,7 +193,9 @@
   },
   {
     "code": "bem",
-    "englishName": "Bemba",
+    "name": {
+      "en": "Bemba"
+    },
     "speakers": 3600000,
     "location": {
       "lat": -12,
@@ -205,7 +204,9 @@
   },
   {
     "code": "bn",
-    "englishName": "Bengali; Bangla",
+    "name": {
+      "en": ["Bengali", "Bangla"]
+    },
     "speakers": 181000000,
     "location": {
       "lat": 23,
@@ -218,7 +219,9 @@
   },
   {
     "code": "bi",
-    "englishName": "Bislama",
+    "name": {
+      "en": "Bislama"
+    },
     "speakers": 6000,
     "location": {
       "lat": -17,
@@ -227,7 +230,9 @@
   },
   {
     "code": "bs",
-    "englishName": "Bosnian",
+    "name": {
+      "en": "Bosnian"
+    },
     "speakers": 2200000,
     "location": {
       "lat": 44,
@@ -247,17 +252,29 @@
     }
   },
   {
-    "code": "bg",
-    "englishName": "Bulgarian",
-    "speakers": 9100000,
+    "codes": {
+      "639-1": "bg",
+      "639-2": "bul",
+      "639-3": "bul"
+    },
     "location": {
-      "lat": 42,
-      "lon": 23
+      "lat": 42.9,
+      "lon": 23.33,
+      "name": "Sofia"
+    },
+    "name": {
+      "bg": "български език",
+      "en": "Bulgarian"
+    },
+    "speakers": {
+      "native": 6800000
     }
   },
   {
     "code": "my",
-    "englishName": "Burmese",
+    "name": {
+      "en": "Burmese"
+    },
     "speakers": 32000000,
     "location": {
       "lat": 17,
@@ -280,8 +297,24 @@
     "englishName": "Chamorro"
   },
   {
-    "code": "ce",
-    "englishName": "Chechen"
+    "codes": {
+      "639-1": "ce",
+      "639-2": "che",
+      "639-3": "che"
+    },
+    "location": {
+      "lat": 43.4,
+      "lon": 45.72,
+      "name": "Chechnya"
+    },
+    "name": {
+      "ca": "txetxè",
+      "ce": ["Нохчийн Муотт", "Noxčiyn Muott"],
+      "en": "Chechen"
+    },
+    "speakers": {
+      "native": 1400000
+    }
   },
   {
     "codes": {
@@ -323,16 +356,59 @@
     "englishName": "Cree"
   },
   {
-    "code": "hr",
-    "englishName": "Croatian"
+    "codes": {
+      "639-1": "hr",
+      "639-2": "hrv",
+      "639-3": "hrv"
+    },
+    "location": {
+      "lat": 45.50,
+      "lon": 16
+    },
+    "name": {
+      "en": "Croatian"
+    },
+    "speakers": {
+      "native": 5500000
+    }
   },
   {
-    "code": "cs",
-    "englishName": "Czech"
+    "codes": {
+      "639-1": "cs",
+      "639-2": "cze",
+      "639-3": "ces"
+    },
+    "location": {
+      "lat": 50.08,
+      "lon": 14.47,
+      "name": "Prague"
+    },
+    "name": {
+      "cs": ["čeština", "čeština"],
+      "en": "Czech"
+    },
+    "speakers": {
+      "native": 10000000
+    }
   },
   {
-    "code": "da",
-    "englishName": "Danish"
+    "codes": {
+      "639-1": "da",
+      "639-2": "dan",
+      "639-3": ["dan", "jut"]
+    },
+    "location": {
+      "lat": 55.72,
+      "lon": 12.57,
+      "name": "Copenhagen"
+    },
+    "name": {
+      "da": "dansk",
+      "en": "Danish"
+    },
+    "speakers": {
+      "native": 5600000
+    }
   },
   {
     "code": "dv",
@@ -401,8 +477,19 @@
     "englishName": "Fijian"
   },
   {
-    "code": "fi",
-    "englishName": "Finnish"
+    "codes": {
+      "639-1": "fi",
+      "639-2": "fin",
+      "639-3": "fin"
+    },
+    "location": {
+      "lat": 60.17,
+      "lon": 24.93,
+      "name": "Helsinki"
+    },
+    "name": {
+      "en": "Finnish"
+    }
   },
   {
     "codes": {
@@ -438,8 +525,23 @@
     }
   },
   {
-    "code": "ka",
-    "englishName": "Georgian"
+    "codes": {
+      "639-1": "ka",
+      "639-2": ["geo", "kat"],
+      "639-3": "kat"
+    },
+    "location": {
+      "lat": 41.72,
+      "lon": 44.78,
+      "name": "Tbilisi"
+    },
+    "name": {
+      "en": "Georgian",
+      "ka": ["ქართული", "Kartuli"]
+    },
+    "speakers": {
+      "native": 4200000
+    }
   },
   {
     "code": "de",
@@ -448,14 +550,28 @@
       "en": "German"
     },
     "location": {
-      "lat": 50.60,
-      "lon": 10,
-      "name": "Köln"
+      "lat": 51.56,
+      "lon": 10
     }
   },
   {
-    "code": "el",
-    "englishName": "Greek, Modern"
+    "codes": {
+      "639-1": "el",
+      "639-2": ["gre", "ell"],
+      "639-3": "ell"
+    },
+    "location": {
+      "lat": 37.97,
+      "lon": 23.72,
+      "name": "Athens"
+    },
+    "name": {
+      "el": "Ελληνικά",
+      "en": "Greek"
+    },
+    "speakers": {
+      "native": 12000000
+    }
   },
   {
     "code": "gn",
@@ -490,8 +606,19 @@
     "englishName": "Hiri Motu"
   },
   {
-    "code": "hu",
-    "englishName": "Hungarian"
+    "codes": {
+      "639-1": "hu",
+      "639-2": "hun",
+      "639-3": ["hun", "ohu"]
+    },
+    "location": {
+      "lat": 47.43,
+      "lon": 19.25
+    },
+    "name": {
+      "hu": "magyar",
+      "en": "Hungarian"
+    }
   },
   {
     "code": "ia",
@@ -566,8 +693,23 @@
     "englishName": "Kashmiri"
   },
   {
-    "code": "kk",
-    "englishName": "Kazakh"
+    "codes": {
+      "639-1": "kk",
+      "639-2": "kaz",
+      "639-3": "kaz"
+    },
+    "location": {
+      "lat": 42.31,
+      "lon": 65.38,
+      "name": "Shymkent"
+    },
+    "name": {
+      "kk": ["Qazaqşa", "Қазақша", "Қазақ тілі", "Qazaq tili", "قازاق ٴتىلى‎"],
+      "en": "Kazakh"
+    },
+    "speakers": {
+      "native": 11000000
+    }
   },
   {
     "code": "km",
@@ -598,8 +740,23 @@
     "englishName": "Korean"
   },
   {
-    "code": "ku",
-    "englishName": "Kurdish"
+    "codes": {
+      "639-1": "ku",
+      "639-2": "kur",
+      "639-3": "kur"
+    },
+    "location": {
+      "lat": 37.97,
+      "lon": 44.5,
+      "name": "Hakkâri"
+    },
+    "name": {
+      "en": "Kurdish",
+      "ku": ["Kurdî", "Kurdí", "Кöрди", "كوردی"]
+    },
+    "speakers": {
+      "native": 20000000
+    }
   },
   {
     "code": "kj",
@@ -630,24 +787,60 @@
     "englishName": "Lao"
   },
   {
-    "code": "lt",
-    "englishName": "Lithuanian"
+    "codes": {
+      "639-1": "lt",
+      "639-2": "lit",
+      "639-3": "lit"
+    },
+    "location": {
+      "lat": 54.68,
+      "lon": 25.32,
+      "name": "Vilnius"
+    },
+    "name": {
+      "en": "Lithuanian",
+      "lt": "lietuvių kalba"
+    }
   },
   {
     "code": "lu",
     "englishName": "Luba-Katanga"
   },
   {
-    "code": "lv",
-    "englishName": "Latvian"
+    "codes": {
+      "639-1": "lv",
+      "639-2": "lat",
+      "639-3": "lav"
+    },
+    "location": {
+      "lat": 57,
+      "lon": 25,
+      "name": "Latvia"
+    },
+    "name": {
+      "en": "Latvian",
+      "lt": "latviešu valoda"
+    }
   },
   {
     "code": "gv",
     "englishName": "Manx"
   },
   {
-    "code": "mk",
-    "englishName": "Macedonian"
+    "codes": {
+      "639-1": "mk",
+      "639-2": ["mac", "mkd"],
+      "639-3": "mkd"
+    },
+    "location": {
+      "lat": 42,
+      "lon": 21.43,
+      "name": "Skopje"
+    },
+    "name": {
+      "en": "Macedonian",
+      "mk": ["Македонски јазик", "makedonski jazik"]
+    }
   },
   {
     "code": "mg",
@@ -710,8 +903,19 @@
     "englishName": "Norwegian Nynorsk"
   },
   {
-    "code": "no",
-    "englishName": "Norwegian"
+    "codes": {
+      "639-1": ["no", "nb", "nn"],
+      "639-2": ["nor", "nob", "nno"],
+      "639-3": "nor"
+    },
+    "location": {
+      "lat": 59.93,
+      "lon": 10.68,
+      "name": "Oslo"
+    },
+    "name": {
+      "en": "Norwegian"
+    }
   },
   {
     "code": "ii",
@@ -874,6 +1078,24 @@
     }
   },
   {
+    "codes": {
+      "639-2": "sco",
+      "639-3": "sco"
+    },
+    "location": {
+      "lat": 55.324,
+      "lon": -4.397
+    },
+    "name": {
+      "en": "Scots",
+      "sco": ["scots", "lallans"]
+    },
+    "speakers": {
+      "native": 117500,
+      "L2": 1500000
+    }
+  },
+  {
     "code": "sd",
     "englishName": "Sindhi"
   },
@@ -921,12 +1143,40 @@
     "englishName": "Sinhala, Sinhalese"
   },
   {
-    "code": "sk",
-    "englishName": "Slovak"
+    "codes": {
+      "639-1": "sk",
+      "639-2": ["slo", "slk"],
+      "639-3": "slk"
+    },
+    "location": {
+      "lat": 48.15,
+      "lon": 17.12,
+      "name": "Bratislava"
+    },
+    "name": {
+      "en": "Slovak"
+    },
+    "speakers": {
+      "native": 5000000
+    }
   },
   {
-    "code": "sl",
-    "englishName": "Slovene"
+    "codes": {
+      "639-1": "sl",
+      "639-2": "slv",
+      "639-3": "slv"
+    },
+    "location": {
+      "lat": 46.3,
+      "lon": 14.5
+    },
+    "name": {
+      "en": ["Slovene", "Slovenian"],
+      "sl": ["slovenski jezik", "slovenščina"]
+    },
+    "speakers": {
+      "native": 2500000
+    }
   },
   {
     "code": "so",
@@ -971,7 +1221,14 @@
   },
   {
     "code": "sv",
-    "englishName": "Swedish"
+    "location": {
+      "lat": 59.35,
+      "lon": 18.07,
+      "name": "Stockholm"
+    },
+    "name": {
+      "en": "Swedish"
+    }
   },
   {
     "code": "ta",
@@ -1037,7 +1294,13 @@
   },
   {
     "code": "tt",
-    "englishName": "Tatar"
+    "location": {
+      "lat": 55.55,
+      "lon": 50.93
+    },
+    "name": {
+      "en": "Tatar"
+    }
   },
   {
     "code": "tw",
