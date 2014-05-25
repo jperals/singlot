@@ -339,8 +339,24 @@
     "englishName": "Divehi; Dhivehi; Maldivian;"
   },
   {
-    "code": "nl",
-    "englishName": "Dutch"
+    "codes": {
+      "639-1": "nl",
+      "639-2": ["dut", "nld"],
+      "639-3": ["nld", "vls", "zea"]
+    },
+    "location": {
+      "lat": 52.37,
+      "lon": 4.88,
+      "name": "Amsterdam"
+    },
+    "name": {
+      "en": "Dutch",
+      "nl": "Nederlands"
+    },
+    "speakers": {
+      "native": 23000000,
+      "total": 28000000
+    }
   },
   {
     "code": "dz",
@@ -755,8 +771,20 @@
     "englishName": "Persian (Farsi)"
   },
   {
-    "code": "pl",
-    "englishName": "Polish"
+    "codes": {
+      "639-1": "pl",
+      "639-2": "pol",
+      "639-3": "pol"
+    },
+    "location": {
+      "lat": 52.23,
+      "lon": 21.02,
+      "name": "Warsaw"
+    },
+    "name": {
+      "en": "Polish",
+      "pl": ["polski", "język polski", "polszczyzna"]
+    }
   },
   {
     "code": "ps",
@@ -786,12 +814,44 @@
     "englishName": "Kirundi"
   },
   {
-    "code": "ro",
-    "englishName": "Romanian, [])"
+    "codes": {
+      "639-1": "ro",
+      "639-2": ["rum", "ron"],
+      "639-3": "ron"
+    },
+    "location": {
+      "lat": 44.42,
+      "lon": 26.10,
+      "name": "Bucharest"
+    },
+    "name": {
+      "en": "Romanian",
+      "ro": "limba română"
+    },
+    "speakers": {
+      "native": 24000000,
+      "second": 4000000
+    }
   },
   {
-    "code": "ru",
-    "englishName": "Russian"
+    "codes": {
+      "639-1": "ru",
+      "639-2": "rus",
+      "639-3": "rus"
+    },
+    "location": {
+      "lat": 55.75,
+      "lon": 37.62,
+      "name": "Moscow"
+    },
+    "name": {
+      "ru": "русский язык",
+      "en": "Russian"
+    },
+    "speakers": {
+      "native": 150000000,
+      "total": 283500000
+    }
   },
   {
     "code": "sa",
@@ -830,8 +890,23 @@
     "englishName": "Sango"
   },
   {
-    "code": "sr",
-    "englishName": "Serbian"
+    "codes": {
+      "639-1": "sr",
+      "639-2": "srp",
+      "s39-3": "srp"
+    },
+    "location": {
+      "lat": 44.80,
+      "lon": 20.47,
+      "name": "Belgrade"
+    },
+    "name": {
+      "en": "Serbian",
+      "sr": ["српски", "srpski"]
+    },
+    "speakers": {
+      "native": 9700000
+    }
   },
   {
     "code": "gd",
@@ -939,8 +1014,23 @@
     "englishName": "Tonga (Tonga Islands)"
   },
   {
-    "code": "tr",
-    "englishName": "Turkish"
+    "codes": {
+      "639-1": "tr",
+      "639-2": "tur",
+      "639-3": "tur"
+    },
+    "name": {
+      "tr": "Türkçe",
+      "en": "Turkish"
+    },
+    "speakers": {
+      "native": 63000000
+    },
+    "location": {
+      "lat": 41.01,
+      "lon": 28.95,
+      "name": "Istanbul"
+    }
   },
   {
     "code": "ts",
@@ -963,8 +1053,24 @@
     "englishName": "Uyghur, Uighur"
   },
   {
-    "code": "uk",
-    "englishName": "Ukrainian"
+    "codes": {
+      "639-1": "uk",
+      "639-2": "ukr",
+      "639-3": "ukr"
+    },
+    "location": {
+      "lat":  50.42,
+      "lon": 30.50,
+      "name": "Kiev"
+    },
+    "name": {
+      "en": "Ukrainian",
+      "uk": "українська мова"
+    },
+    "speakers": {
+      "native": 30000000,
+      "total": 40000000
+    }
   },
   {
     "code": "ur",
