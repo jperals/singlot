@@ -598,8 +598,22 @@
     "englishName": "Herero"
   },
   {
-    "code": "hi",
-    "englishName": "Hindi"
+    "codes": {
+      "639-1": "hi",
+      "639-2": "hin",
+      "639-3": "hin"
+    },
+    "location": {
+      "lat": 28.47,
+      "lon": 77.23
+    },
+    "name": {
+      "hi": ["हिन्दी", "मानक हिन्दी"],
+      "en": "Hindi"
+    },
+    "speakers": {
+      "native": 180000000
+    }
   },
   {
     "code": "ho",
@@ -669,8 +683,23 @@
     "englishName": "Inuktitut"
   },
   {
-    "code": "ja",
-    "englishName": "Japanese"
+    "codes": {
+      "639-1": "ja",
+      "639-2": "jpn",
+      "639-3": "jpn"
+    },
+    "location": {
+      "lat": 35.68,
+      "lon": 139.77,
+      "name": "Tokyo"
+    },
+    "name": {
+      "en": "Japanese",
+      "ja": ["日本語", "Nihongo"]
+    },
+    "speakers": {
+      "native": 125000000
+    }
   },
   {
     "code": "jv",
@@ -881,6 +910,22 @@
   {
     "code": "nv",
     "englishName": "Navajo, Navaho"
+  },
+  {
+    "codes": {
+      "639-3": "nan"
+    },
+    "location": {
+      "lat": 24.52,
+      "lon": 117.65,
+      "name": "Zhangzhou"
+    },
+    "name": {
+      "en": "Min nan"
+    },
+    "speakers": {
+      "native": 47000000
+    }
   },
   {
     "code": "nb",
@@ -1347,8 +1392,23 @@
     "englishName": "Venda"
   },
   {
-    "code": "vi",
-    "englishName": "Vietnamese"
+    "codes": {
+      "639-1": "vi",
+      "639-2": "vie",
+      "639-3": "vie"
+    },
+    "location": {
+      "lat": 15.67,
+      "lon": 108.49,
+      "name": "central Vietnam"
+    },
+    "name": {
+      "en": "Vietnamese",
+      "vi": "tiếng Việt"
+    },
+    "speakers": {
+      "native": 75000000
+    }
   },
   {
     "code": "vo",
@@ -1371,6 +1431,22 @@
     "englishName": "Western Frisian"
   },
   {
+    "codes": {
+      "639-3": "wuu"
+    },
+    "location": {
+      "lat": 31.20,
+      "lon": 121.5,
+      "name": "Shanghai"
+    },
+    "name": {
+      "en": "Wu"
+    },
+    "speakers": {
+      "native": 80000000
+    }
+  },
+  {
     "code": "xh",
     "englishName": "Xhosa"
   },
@@ -1381,6 +1457,22 @@
   {
     "code": "yo",
     "englishName": "Yoruba"
+  },
+  {
+    "codes": {
+      "639-3": "yue"
+    },
+    "location": {
+      "lat": 22.45,
+      "lon": 114.32,
+      "name": "Hong Kong"
+    },
+    "name": {
+      "en": "Yue"
+    },
+    "speakers": {
+      "native": 60000000
+    }
   },
   {
     "code": "za",
