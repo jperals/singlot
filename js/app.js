@@ -35,6 +35,7 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                     console.log( 'marker name: ' + args.markerName);
                     console.log( 'marker: ' + $scope.markers[args.markerName]);
                     var inputField = angular.element(document.querySelector('.translation.language-' + args.markerName))[0];
+                    inputField.innerText = '';
                     inputField.focus();
                 });
                 $scope.translate = translationService.translate;
