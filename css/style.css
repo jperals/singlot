@@ -3,8 +3,24 @@ body {
     height: 100%;
     margin: 0;        
 }
-.transglobeMap,
-#map-wrapper,
+.navbar-custom {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+.navbar-inverse.navbar-custom {
+    background: -webkit-linear-gradient(#444444, #111111);
+    background: linear-gradient(#444444, #111111);
+}
+.navbar-inverse.navbar-custom a {
+    color: #EEEEEE;
+}
+#map-wrapper {
+    position: absolute;
+    top: 52px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 #map {
     height: 100%;
 }

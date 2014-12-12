@@ -14,6 +14,8 @@
   "license": "AGPL",
   "private": true,
   "dependencies": {
-    "angular-leaflet": "~0.7.7"
+    "angular-leaflet": "~0.7.7",
+    "bootstrap-ui": "~0.11.0",
+    "bootstrap": "~3.1.1"
   }
 }
