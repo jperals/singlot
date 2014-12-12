@@ -7,10 +7,6 @@ body {
     border-radius: 0;
     margin-bottom: 0;
 }
-.navbar-inverse.navbar-custom {
-    background: -webkit-linear-gradient(#444444, #111111);
-    background: linear-gradient(#444444, #111111);
-}
 .navbar-inverse.navbar-custom a {
     color: #EEEEEE;
 }
@@ -45,11 +41,12 @@ body {
 }
 .translation {
     background: transparent;
-    border-bottom-left-radius: 3px;
-    border-top-left-radius: 3px;
+    border-radius: 3px;
     cursor: text;
     position: absolute;
     left: 0;
+    overflow: hidden;
+    padding-right: 3px;
     top: 0;
     width: auto;
     z-index: 10;
@@ -61,7 +58,9 @@ body {
     border-top-left-radius: 0;
     color: #DDDDDD;
     display: none;
-    padding: 1px 0.3em;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 0 0.7em;
     position: absolute;
     left: 99px;
     top: -1px;
@@ -69,31 +68,28 @@ body {
     z-index: 20;
 }
 .translation ~ a[role="button"]:hover {
-    background-color: #666666;
+    background-color: #559955;
 }
 .translation-container:hover .translation,
 .translation:focus {
+    background: rgba(255, 255, 255, 0.25);
     border-right: none;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
     text-shadow: none;
     width: 100px;
 }
-.translation-container:hover .translation {
-    background: rgba(255, 255, 255, 0.25);
+/*.translation-container:hover .translation {
     border: 1px solid rgba(255, 255, 255, 0.25);
     left: -1px;
     margin-top: -1px;
-}
+}*/
 .translation:focus {
-    background: rgba(255, 255, 255, 0.5);
-}
-.translation-container:hover .translation:focus {
-    border: none;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    height: 24px;
     left: 0;
     margin-top: 0;
 }
-.translation-container:hover a[role="button"],
+/*.translation-container:hover a[role="button"],*/
 .translation:focus ~ a[role="button"] {
     display: inline;
 }
@@ -110,13 +106,24 @@ body {
 .translation:focus ~ .placeholder {
     opacity: 0;
 }
+.translation,
+.translation-container > a {
+    height: 26px;
+}
 @-moz-document url-prefix() {
-    .translation {
-        height: 1.5em;
-    }
-    .translation:focus {
-        border: 1px solid rgba(255, 255, 255, .75) !important;
+ /*   .translation-container:hover .translation {
         top: -1px;
+        left: -1px;
+    }*/
+    .translation:focus {
+/*        border: 1px solid rgba(255, 255, 255, .25) !important;
+        top: -1px;
+        left: -1px;*/
         outline: none;
+        height: 26px;
+    }
+    .translation ~ a[role="button"] {
+        /*margin-top: 0;*/
+        margin-top: 1px;
     }
 }

@@ -56,7 +56,7 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                     html: '<div class="translation-container empty" data-language="' + languageCode + '" data-languagename="' + languageName + '">' +
                           '<div contenteditable="true" class="translation language-' + languageCodeLocal + '"></div>' +
                           '<div class="placeholder">' + languageName + '</div>' +
-                          '<a href="#" onclick="console.log(\'click!\');translateToAll(this)" role="button">Go</a>' +
+                          '<a href="#" onclick="console.log(\'click!\');translateToAll(this)" role="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>' +
                           '</div>',
                     type: 'div'
                 };
