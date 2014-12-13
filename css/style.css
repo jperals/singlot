@@ -30,7 +30,9 @@ body {
     width: auto;
 }
 .translation-container > * {
+    line-height: 26px;
     margin-left: -50%;
+    margin-right: 50%;
 }
 .translation-container > .translation,
 .translation-container > .placeholder {
@@ -39,9 +41,11 @@ body {
     padding: 0 3px;
     text-shadow: 0 0 3px #000;
 }
+.translation, .placeholder {
+    border-radius: 3px;
+}
 .translation {
     background: transparent;
-    border-radius: 3px;
     cursor: text;
     position: absolute;
     left: 0;
@@ -52,30 +56,33 @@ body {
     z-index: 10;
 }
 .translation ~ a[role="button"] {
-    background-color: #7D7D7D;
+    background-color: rgba(255, 255, 255, 0.35);
     border-radius: 0 3px 3px 0;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     color: #DDDDDD;
+    /*pointer-events: none;*/
+    opacity: 0;
     display: none;
     font-size: 14px;
-    line-height: 26px;
-    padding: 0 0.7em;
+    padding: 0 0.3em 0 0.5em;
     position: absolute;
-    left: 99px;
-    top: -1px;
+    left: 100px;
+    top: 0;
     text-decoration: none;
     z-index: 20;
 }
 .translation ~ a[role="button"]:hover {
     background-color: #559955;
 }
-.translation-container:hover .translation,
-.translation:focus {
-    background: rgba(255, 255, 255, 0.25);
+.translation-container:hover > .placeholder {
+    background: rgba(255, 255, 255, 0.35);
     border-right: none;
     text-shadow: none;
-    width: 100px;
+
+}
+.translation-container:hover .translation,
+.translation:focus {
 }
 /*.translation-container:hover .translation {
     border: 1px solid rgba(255, 255, 255, 0.25);
@@ -83,15 +90,23 @@ body {
     margin-top: -1px;
 }*/
 .translation:focus {
+    background: rgba(255, 255, 255, 0.35);
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
-    height: 24px;
+    /*height: 24px;*/
     left: 0;
     margin-top: 0;
+    outline: none;
+    width: 100px;
 }
-/*.translation-container:hover a[role="button"],*/
+.translation-container:hover a[role="button"],
 .translation:focus ~ a[role="button"] {
     display: inline;
+}
+.translation:focus ~ a[role="button"] {
+    pointer-events: auto;
+    display: inline;
+    opacity: 1;
 }
 .translation ~ .placeholder {
     cursor: text;
@@ -119,11 +134,6 @@ body {
 /*        border: 1px solid rgba(255, 255, 255, .25) !important;
         top: -1px;
         left: -1px;*/
-        outline: none;
         height: 26px;
-    }
-    .translation ~ a[role="button"] {
-        /*margin-top: 0;*/
-        margin-top: 1px;
     }
 }

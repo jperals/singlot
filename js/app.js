@@ -49,13 +49,14 @@ var app = angular.module('transglobe', ['leaflet-directive'])
             var markerLocation = ( typeof i === "undefined" ) ? language.location : language.location[i];
             if(typeof markerLocation !== "undefined") {
                 var languageName = languageService.getLanguageName(language),
+                    nativeLanguageName = languageService.getNativeLanguageName(language),
                     languageCode = languageService.getLanguageCode(language);
                 var languageCodeLocal = ( typeof i === "undefined" ) ? languageCode : languageCode + '_' + i;
                 var languageIcon = {
                     className: 'language-label',
-                    html: '<div class="translation-container empty" data-language="' + languageCode + '" data-languagename="' + languageName + '">' +
+                    html: '<div class="translation-container empty" data-language="' + languageCode + '" data-languagename="' + languageName + '" data-nativelanguagename="' + nativeLanguageName + '">' +
                           '<div contenteditable="true" class="translation language-' + languageCodeLocal + '"></div>' +
-                          '<div class="placeholder">' + languageName + '</div>' +
+                          '<div class="placeholder">' + nativeLanguageName + '</div>' +
                           '<a href="#" onclick="console.log(\'click!\');translateToAll(this)" role="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>' +
                           '</div>',
                     type: 'div'
@@ -150,6 +151,32 @@ var app = angular.module('transglobe', ['leaflet-directive'])
                     }
                 }
                 return languageName;
+            },
+            getNativeLanguageName: function(language) {
+                var languageName;
+                var languageCode = this.getSimpleCode(language);
+                if(typeof language.name[languageCode] !== 'undefined') {
+                    languageName = language.name[languageCode];
+                }
+                else if(typeof language.name[visitorLanguage] !== 'undefined') {
+                    languageName = language.name[visitorLanguage];
+                }
+                else {
+                    languageName = language.name;
+                }
+                if(typeof languageName === 'object') languageName = languageName[0];
+                if(typeof languageName !== 'string') console.log(languageName);
+                return languageName;
+            },
+            getSimpleCode: function(language) {
+                var code;
+                if(language.code) {
+                    code = language.code;
+                }
+                else if(language.codes) {
+                    code = language.codes["639-1"] || language.codes["639-2"] || language.codes["639-3"];
+                }
+                return code;
             },
             getLanguages: function() {
                 return languages;

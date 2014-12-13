@@ -172,6 +172,7 @@
       "639-3": "eus"
     },
     "name": {
+      "eu": ["euskera", "euskara"],
       "en": "Basque"
     },
     "speakers": 665800,
@@ -284,6 +285,7 @@
   {
     "code": "ca",
     "name": {
+      "ca": ["català", "valencià"],
       "en": ["Catalan", "Valencian"]
     },
     "speakers": 11530000,
