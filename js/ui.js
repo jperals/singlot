@@ -5,6 +5,13 @@
 angular.module('singlot')
 
     .directive('singlotMap', ['languageMarkersFactory', 'translationService', function(languageMarkersFactory, translationService) {
+        function selectElementContents(el) {
+            var range = document.createRange();
+            range.selectNodeContents(el);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
         return {
             restrict: 'E',
             replace: true,
@@ -38,9 +45,7 @@ angular.module('singlot')
                 $scope.$on('leafletDirectiveMarker.click', function(event, args) {
                     console.log( 'marker name: ' + args.markerName);
                     console.log( 'marker: ' + $scope.markers[args.markerName]);
-                    var inputField = angular.element(document.querySelector('.translation.language-' + args.markerName))[0];
-                    inputField.innerText = '';
-                    inputField.focus();
+                    selectElementContents(document.querySelector('.translation.language-' + args.markerName));
                 });
                 $scope.translate = translationService.translate;
             }
