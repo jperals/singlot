@@ -82,39 +82,7 @@ angular.module('singlot')
 
     }])
 
-    .service('translationService', ['languageService', function(languageService) {
-        var jsonp = {
-            callbackCounter: 0,
-
-            fetch: function(url, callback) {
-                var fn = 'JSONPCallback_' + this.callbackCounter++;
-                window[fn] = this.evalJSONP(callback);
-                url = url.replace('=JSONPCallback', '=' + fn);
-
-                var scriptTag = document.createElement('SCRIPT');
-                scriptTag.src = url;
-                document.getElementsByTagName('HEAD')[0].appendChild(scriptTag);
-            },
-
-            evalJSONP: function(callback) {
-                return function(data) {
-                    var validJSON = false;
-                    if (typeof data === "string") {
-                        try {validJSON = JSON.parse(data);} catch (e) {
-                            /*invalid JSON*/}
-                    } else {
-                        validJSON = JSON.parse(JSON.stringify(data));
-                        window.console && console.warn(
-                            'response data was not a JSON string');
-                    }
-                    if (validJSON) {
-                        callback(validJSON);
-                    } else {
-                        throw("JSONP call returned invalid or empty JSON");
-                    }
-                };
-            }
-        };
+    .service('translationService', ['languageService', '$http', function(languageService, $http) {
         return {
             translate: function(options) {
                 var languages = languageService.getLanguages(),
@@ -136,29 +104,34 @@ angular.module('singlot')
                 else {
                     var translatedText = "";
                     var targetLanguageCode = options.to;
-                    var url = "http://glosbe.com/gapi/translate?from=" + sourceLanguageCode + "&dest=" + targetLanguageCode + "&format=json&phrase=" + options.text + "&callback=JSONPCallback&pretty=true";
-                    jsonp.fetch(url, function(data){
-                        console.log(data);
-                        if(typeof data.tuc === "undefined") {
-                            elem.value = "";
-                        }
-                        else {
-                            if(data.tuc instanceof Array) {
-                                if(data.tuc.length > 0) {
-                                    if(data.tuc[0].phrase) {
-                                        translatedText = data.tuc[0].phrase.text;
-                                    }
-                                }
+                    var url = "http://glosbe.com/gapi/translate?from=" + sourceLanguageCode + "&dest=" + targetLanguageCode + "&format=json&phrase=" + options.text + "&callback=JSON_CALLBACK&pretty=true";
+                    var that = this;
+                    $http.jsonp(url)
+                        .success(function(data) {
+                            console.log(data);
+                            if(typeof data.tuc === "undefined") {
+                                elem.value = "";
                             }
                             else {
-                                translatedText = data.tuc.phrase.text;
+                                if(data.tuc instanceof Array) {
+                                    if(data.tuc.length > 0) {
+                                        if(data.tuc[0].phrase) {
+                                            translatedText = data.tuc[0].phrase.text;
+                                        }
+                                    }
+                                }
+                                else {
+                                    translatedText = data.tuc.phrase.text;
+                                }
                             }
-                        }
-                        options.callback({
-                            to: options.to,
-                            translatedText: translatedText
+                            options.callback({
+                                to: options.to,
+                                translatedText: translatedText
+                            });
+                        })
+                        .error(function(data, status, headers, config) {
+                            console.error('There was an error trying to translate this phrase from ' + sourceLanguageCode + ' to ' + targetLanguageCode + ': "' + options.text + '"');
                         });
-                    });
                 }
             }
         };
