@@ -1,11 +1,13 @@
 <!doctype HTML>
-<html ng-app="transglobe">
+<html ng-app="singlot">
 <head>
     <title>Polyglot</title>
     <script src="components/leaflet/dist/leaflet-src.js"></script>
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-leaflet/dist/angular-leaflet-directive.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/languageServices.js"></script>
     <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="components/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="css/style.css" />
@@ -14,10 +16,10 @@
     <div class="navbar navbar-inverse navbar-custom">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Polyglot</a>
+                <a class="navbar-brand" href="#">Singlot</a>
             </div>
         </div>
     </div>
-    <div class="transglobeMap"></div>
+    <singlot-map></singlot-map>
 </body>
 </html>
