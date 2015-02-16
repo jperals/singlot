@@ -7,9 +7,26 @@ body {
     border-radius: 0;
     margin-bottom: 0;
 }
-.navbar-inverse.navbar-custom a {
+.navbar-inverse a {
     color: #EEEEEE;
 }
+
+.navbar-header {
+    width: 100%;
+}
+
+.navbar-header .info-sign {
+    color: #999999;
+    float: right;
+    height: 50px;
+    line-height: 20px;
+    padding: 15px 0;
+}
+
+.navbar-header .info-sign:hover {
+    color: #EEEEEE;
+}
+
 #map-wrapper {
     position: absolute;
     top: 52px;

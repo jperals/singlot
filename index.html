@@ -1,23 +1,36 @@
 <!doctype HTML>
-<html ng-app="transglobe">
+<html ng-app="singlot">
 <head>
-    <title>Polyglot</title>
+    <title>Singlot</title>
     <script src="components/leaflet/dist/leaflet-src.js"></script>
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-leaflet/dist/angular-leaflet-directive.js"></script>
+    <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="js/app.js"></script>
     <link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="components/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="css/style.css" />
 </head>
-<body ng-init="showMap = false;">
+<body ng-init="showMap = false;" ng-controller="singlotMapCtrl">
+    <script type="text/ng-template" id="infoModal.html">
+        <div class="modal-header">
+            <h3 class="modal-title">What's this?</h3>
+        </div>
+        <div class="modal-body">
+            <p>Singlot stands for <i>SImultaneous Non-linear GLObal Translator</i>. It's a small personal project made without excessive pretensions.</p>
+            <p>Click on any text box to write in the corresponding language. Then press the small white arrow to see your text be translated live into all other languages in the map.</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" ng-click="$close()">OK</button>
+        </div>
+    </script>
     <div class="navbar navbar-inverse navbar-custom">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Polyglot</a>
+                <a class="navbar-brand" href="#">Singlot</a><a href="#" class="info-sign" ng-click="openInfoModal()" title="More information"><span class="glyphicon glyphicon-info-sign"></span></a>
             </div>
         </div>
     </div>
-    <div class="transglobeMap"></div>
+    <div class="singlot-map"></div>
 </body>
 </html>

@@ -1,6 +1,17 @@
-var app = angular.module('transglobe', ['leaflet-directive'])
+var app = angular.module('singlot', [
+    'ui.bootstrap',
+    'leaflet-directive'
+])
 
-    .directive('transglobeMap', ['languageMarkersFactory', 'translationService', function(languageMarkersFactory, translationService) {
+    .controller('singlotMapCtrl', ['$scope', '$modal', function($scope, $modal) {
+        $scope.openInfoModal = function() {
+            var modalInstance = $modal.open({
+                templateUrl: 'infoModal.html',
+            });
+        };
+    }])
+
+    .directive('singlotMap', ['languageMarkersFactory', 'translationService', function(languageMarkersFactory, translationService) {
         return {
             restrict: 'C',
             replace: true,
@@ -346,7 +357,7 @@ var translateToAll = function(element) {
             }
         }
     };
-    var languageMap = document.querySelector('.transglobeMap');
+    var languageMap = document.querySelector('.singlot-map');
     var scope = angular.element(languageMap).scope();
     var options = {
         callback: callback,
