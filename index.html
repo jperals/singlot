@@ -14,20 +14,22 @@
 <body ng-init="showMap = false;" ng-controller="singlotMapCtrl">
     <script type="text/ng-template" id="infoModal.html">
         <div class="modal-header">
-            <h3 class="modal-title">What's this?</h3>
+            <h3 class="modal-title">Singlot</h3>
         </div>
         <div class="modal-body">
-            <p>Singlot stands for <i>SImultaneous Non-linear GLObal Translator</i>. It's a small personal project made without excessive pretensions.</p>
+            <p>Singlot stands for <i>SImultaNeous GLObal Translator</i>. It's a small personal project made without excessive pretensions.</p>
             <p>Click on any text box to write in the corresponding language. Then press the small white arrow to see your text be translated live into all other languages in the map.</p>
+            <p>This project uses <a href="//glosbe.com">Glosbe</a> as translation service.</p>
         </div>
         <div class="modal-footer">
-            <button class="btn" ng-click="$close()">OK</button>
+            <button class="btn btn-default" ng-click="$close()">OK</button>
         </div>
     </script>
     <div class="navbar navbar-inverse navbar-custom">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">Singlot</a><a href="#" class="info-sign" ng-click="openInfoModal()" title="More information"><span class="glyphicon glyphicon-info-sign"></span></a>
+                <a class="navbar-brand" href="#" ng-click="openInfoModal()" tooltip-placement="bottom" tooltip="What is this about?" tooltip-trigger="mouseenter">Singlot</a>                
+                <a href="https://github.com/jperals/singlot" class="github-ribbon"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
             </div>
         </div>
     </div>
