@@ -1,2 +1,4 @@
-var app = angular.module('singlot', ['leaflet-directive'])
-        ;
+var app = angular.module('singlot', [
+  'leaflet-directive',
+  'ui.bootstrap'
+])

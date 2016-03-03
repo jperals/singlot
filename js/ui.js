@@ -218,6 +218,15 @@ angular.module('singlot')
     }
   };
 
+}])
+
+.controller('singlotMapCtrl', ['$scope', '$modal', function($scope, $modal) {
+  $scope.openInfoModal = function() {
+    console.log("open info modal");
+    var modalInstance = $modal.open({
+      templateUrl: 'infoModal.html',
+    });
+  };
 }]);
 
 var translateToAll = function(element) {

@@ -7,9 +7,32 @@ body {
     border-radius: 0;
     margin-bottom: 0;
 }
-.navbar-inverse.navbar-custom a {
+.navbar-inverse a {
     color: #EEEEEE;
 }
+
+.navbar-header {
+    width: 100%;
+}
+
+.navbar-header .tooltip {
+    font-size: 13px;
+    max-width: 85px;
+}
+
+.navbar-header .tooltip-inner {
+    line-height: 1.7em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+}
+
+.navbar-header .github-ribbon {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    z-index: 10;
+}
+
 #map-wrapper {
     position: absolute;
     top: 52px;
