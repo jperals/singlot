@@ -82,84 +82,45 @@ angular.module('singlot')
 
     }])
 
-    .service('translationService', ['languageService', '$http', function(languageService, $http) {
+    .service('translationService', ['languageService', '$http', '$q', function(languageService, $http, $q) {
         return {
             translate: function(options) {
-                var languages = languageService.getLanguages(),
-                    sourceLanguageCode = options.from;
-                if(typeof languages === "undefined") return;
-                if(typeof options.to === "undefined") {
-                    for(var i = 0; i < languages.length; i++) {
-                        var language = languages[i];
-                        if(typeof language.location !== "undefined" && sourceLanguageCode !== languageService.getLanguageCode(language)) {
-                            this.translate({
-                                from: options.from,
-                                text: options.text,
-                                to: languageService.getLanguageCode(language),
-                                callback: options.callback
-                            });
+                var sourceLanguageCode = options.from;
+                var translatedText = "";
+                var targetLanguageCode = options.to;
+                var url = "http://glosbe.com/gapi/translate?from=" + sourceLanguageCode + "&dest=" + targetLanguageCode + "&format=json&phrase=" + options.text + "&callback=JSON_CALLBACK&pretty=true";
+                var deferred = $q.defer();
+
+                $http.jsonp(url)
+                    .success(function(data) {
+                        console.log(data);
+                        if(typeof data.tuc === "undefined") {
+                            elem.value = "";
                         }
-                    }
-                }
-                else {
-                    var translatedText = "";
-                    var targetLanguageCode = options.to;
-                    var url = "http://glosbe.com/gapi/translate?from=" + sourceLanguageCode + "&dest=" + targetLanguageCode + "&format=json&phrase=" + options.text + "&callback=JSON_CALLBACK&pretty=true";
-                    var that = this;
-                    $http.jsonp(url)
-                        .success(function(data) {
-                            console.log(data);
-                            if(typeof data.tuc === "undefined") {
-                                elem.value = "";
-                            }
-                            else {
-                                if(data.tuc instanceof Array) {
-                                    if(data.tuc.length > 0) {
-                                        if(data.tuc[0].phrase) {
-                                            translatedText = data.tuc[0].phrase.text;
-                                        }
+                        else {
+                            if(data.tuc instanceof Array) {
+                                if(data.tuc.length > 0) {
+                                    if(data.tuc[0].phrase) {
+                                        translatedText = data.tuc[0].phrase.text;
                                     }
                                 }
-                                else {
-                                    translatedText = data.tuc.phrase.text;
-                                }
                             }
-                            options.callback({
-                                to: options.to,
-                                translatedText: translatedText
-                            });
-                        })
-                        .error(function(data, status, headers, config) {
-                            console.error('There was an error trying to translate this phrase from ' + sourceLanguageCode + ' to ' + targetLanguageCode + ': "' + options.text + '"');
+                            else {
+                                translatedText = data.tuc.phrase.text;
+                            }
+                        }
+                        deferred.resolve({
+                            translatedText: translatedText,
+                            to: options.to
                         });
-                }
+                    })
+                    .error(function(data, status, headers, config) {
+                        console.error('There was an error trying to translate this phrase from ' + sourceLanguageCode + ' to ' + targetLanguageCode + ': "' + options.text + '"');
+                    });
+
+            return deferred.promise;
             }
         };
     }])
 
 ;
-
-var translateToAll = function(element) {
-    var from = element.parentElement.getAttribute('data-language'),
-        text = element.parentElement.children[0].innerText;
-    console.log('translate: ' + text);
-    var callback = function(options) {
-        if(options.to && options.translatedText) {
-            var elements = document.querySelectorAll('.translation.language-' + options.to);
-            for(var j in elements) {
-                var elem = elements.item(j);
-                if(elem) {
-                    elem.innerHTML = options.translatedText;
-                }
-            }
-        }
-    };
-    var languageMap = document.querySelector('#map-wrapper');
-    var scope = angular.element(languageMap).scope();
-    var options = {
-        callback: callback,
-        from: from,
-        text: text
-    };
-    scope.translate(options);
-};
