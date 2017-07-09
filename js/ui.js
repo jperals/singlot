@@ -26,7 +26,7 @@ angular.module('singlot')
           markers) {
           angular.extend(scope, {
             defaults: {
-              tileLayer: 'http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png',
+              tileLayer: 'https://api.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianBlcmFscyIsImEiOiJjajR4NnhwazUwcGdvMzNxbnMzY3Qza3BvIn0.Ae2Eze-ABuDGlilGHthLXQ',
               tileLayerOptions: {
                 attribution: 'Translations by <a href="//www.glosbe.com">Glosbe</a> | Map data by © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               }
