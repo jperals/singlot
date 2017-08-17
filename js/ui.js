@@ -224,14 +224,17 @@ angular.module('singlot')
 var translateToAll = function(element) {
   var from = element.parentElement.getAttribute('data-language'),
     text = element.parentElement.children[0].innerText;
+  document.querySelectorAll('translation-container .translation').forEach(function(translationElement) {
+    translationElement.innerText = "";
+  });
+  if(text === "") {
+    return;
+  }
   var languageMap = document.querySelector('#map-wrapper');
   var scope = angular.element(languageMap).scope();
   var options = {
     from: from,
     text: text
   };
-  document.querySelectorAll('translation-container .translation').forEach(function(translationElement) {
-    translationElement.innerText = "";
-  });
   scope.translateToAll(options);
 };
