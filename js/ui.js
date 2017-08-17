@@ -232,5 +232,8 @@ var translateToAll = function(element) {
     from: from,
     text: text
   };
+  document.querySelectorAll('translation-container .translation').forEach(function(translationElement) {
+    translationElement.innerText = "";
+  });
   scope.translateToAll(options);
 };
