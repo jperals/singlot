@@ -158,7 +158,7 @@ angular.module('singlot')
           '" data-nativelanguagename="' + nativeLanguageName + '">' +
           '<div contenteditable="true" class="translation language-' +
           languageCodeLocal + '"></div>' +
-          '<div class="placeholder">' + nativeLanguageName + '</div>' +
+          '<div class="placeholder" title="' + languageName + '">' + nativeLanguageName + '</div>' +
           '<a href="#" onclick="translateToAll(this)" role="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>' +
           '</div>',
         type: 'div'
