@@ -12,7 +12,9 @@ angular.module('singlot')
 
         $http.get('data/languages.json')
             .success(function(response) {
-                languages = response;
+                languages = response.filter(function(element) {
+                    return element.location instanceof Object;
+                });
                 deferred.resolve(response);
             })
         ;
