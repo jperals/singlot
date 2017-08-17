@@ -49,8 +49,6 @@ angular.module('singlot')
       },
       controller: function($scope) {
         $scope.$on('leafletDirectiveMarker.click', function(event, args) {
-          console.log('marker name: ' + args.markerName);
-          console.log('marker: ' + $scope.markers[args.markerName]);
           selectElementContents(document.querySelector(
             '.translation.language-' + args.modelName));
         });
