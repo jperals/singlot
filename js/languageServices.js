@@ -97,30 +97,26 @@ angular.module('singlot')
                 var deferred = $q.defer();
 
                 $http.jsonp(url)
-                    .success(function(data) {
-                        console.log(data);
-                        if(typeof data.tuc === "undefined") {
-                            elem.value = "";
+                    .success(function successCallback(response) {
+                        if(response.code === 200 && response.text instanceof Array) {
+                            translatedText = response.text[0];
                         }
                         else {
-                            if(data.tuc instanceof Array) {
-                                if(data.tuc.length > 0) {
-                                    if(data.tuc[0].phrase) {
-                                        translatedText = data.tuc[0].phrase.text;
-                                    }
-                                }
-                            }
-                            else {
-                                translatedText = data.tuc.phrase.text;
-                            }
+                            translatedText = "";
+                            console.warn('Couldn\'t translate this text from ' + sourceLanguageCode + ' to ' + targetLanguageCode + ': "' + options.text + '"');
                         }
                         deferred.resolve({
                             translatedText: translatedText,
                             to: options.to
                         });
                     })
-                    .error(function(data, status, headers, config) {
-                        console.error('There was an error trying to translate this phrase from ' + sourceLanguageCode + ' to ' + targetLanguageCode + ': "' + options.text + '"');
+                    .error(function errorCallback(response) {
+                        translatedText = "";
+                        console.warn('Couldn\'t translate this text from ' + sourceLanguageCode + ' to ' + targetLanguageCode + ': "' + options.text + '"');
+                        deferred.resolve({
+                            translatedText: "",
+                            to: options.to
+                        });
                     });
 
             return deferred.promise;

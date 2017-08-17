@@ -52,7 +52,7 @@ angular.module('singlot')
           console.log('marker name: ' + args.markerName);
           console.log('marker: ' + $scope.markers[args.markerName]);
           selectElementContents(document.querySelector(
-            '.translation.language-' + args.markerName));
+            '.translation.language-' + args.modelName));
         });
         $scope.translateToAll = function(options) {
           var languages = languageService.getLanguages();
@@ -92,11 +92,9 @@ angular.module('singlot')
     scope: true,
     template: '<div contenteditable="true" class="translation language-{{languageCode}}" ng-click="onTextClick()"></div><div class="placeholder" ng-click="onPlaceHolderClick()">{{languageName}}</div><a href="#" role="button" ng-click="onButtonClick()">Go</a>',
     link: function(scope, element, attrs) {
-      console.log('directive link');
       scope.languageCode = attrs.language;
       scope.languageName = attrs.languagename;
       scope.onPlaceholderClick = function(event) {
-        console.log('clicked on placeholder');
         var container = element.parentElement;
         //var input = element;
         //input.blur(); // Without previously blurring the field, focusing it would mysteriously not work
@@ -104,12 +102,10 @@ angular.module('singlot')
         element[0].focus();
       };
       scope.onTextClick = function(event) {
-        console.log('clicked on input field');
         //this.blur(); // Without previously blurring the field, focusing it would mysteriously not work
         element[0].focus();
       };
       scope.onButtonClick = function(event) {
-        console.log('clicked on button');
         var container = element.parentElement;
         var input = element;
         var sourceLanguage = container.getAttribute('data-language');
@@ -136,7 +132,6 @@ angular.module('singlot')
     },
     controller: function($scope, $element) {
       $scope.$on('leafletDirectiveMarker.click', function(event, args) {
-        console.log('marker name: ' + $scope.markers[args.markerName]);
         $scope.onPlaceholderClick();
       });
     }
@@ -166,7 +161,7 @@ angular.module('singlot')
           '<div contenteditable="true" class="translation language-' +
           languageCodeLocal + '"></div>' +
           '<div class="placeholder">' + nativeLanguageName + '</div>' +
-          '<a href="#" onclick="console.log(\'click!\');translateToAll(this)" role="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>' +
+          '<a href="#" onclick="translateToAll(this)" role="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>' +
           '</div>',
         type: 'div'
       };
@@ -222,7 +217,6 @@ angular.module('singlot')
 
 .controller('singlotMapCtrl', ['$scope', '$modal', function($scope, $modal) {
   $scope.openInfoModal = function() {
-    console.log("open info modal");
     var modalInstance = $modal.open({
       templateUrl: 'infoModal.html',
     });
@@ -232,7 +226,6 @@ angular.module('singlot')
 var translateToAll = function(element) {
   var from = element.parentElement.getAttribute('data-language'),
     text = element.parentElement.children[0].innerText;
-  console.log('translate: ' + text);
   var languageMap = document.querySelector('#map-wrapper');
   var scope = angular.element(languageMap).scope();
   var options = {
