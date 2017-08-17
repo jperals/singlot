@@ -88,7 +88,12 @@ angular.module('singlot')
                 var sourceLanguageCode = options.from;
                 var translatedText = "";
                 var targetLanguageCode = options.to;
-                var url = "http://glosbe.com/gapi/translate?from=" + sourceLanguageCode + "&dest=" + targetLanguageCode + "&format=json&phrase=" + options.text + "&callback=JSON_CALLBACK&pretty=true";
+                var key = "trnsl.1.1.20170817T153125Z.41ce8b796687d241.b6943d3e38540a8f8644a70eda34250c47a2c98a";
+                var url = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+                    + "?key=" + key
+                    + "&text=" + options.text
+                    + "&lang=" + sourceLanguageCode + "-" + targetLanguageCode
+                    + "&callback=JSON_CALLBACK";
                 var deferred = $q.defer();
 
                 $http.jsonp(url)

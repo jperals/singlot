@@ -60,7 +60,7 @@ angular.module('singlot')
           for (var index = 0, nLanguages = languages.length; index <
             nLanguages; index++) {
             var language = languages[index];
-            options.to = languageService.getLanguageCode(language);
+            options.to = languageService.getSimpleCode(language);
 
             translationService.translate(angular.copy(options)).then(
               function(result) {
@@ -155,7 +155,7 @@ angular.module('singlot')
       var languageName = languageService.getLanguageName(language),
         nativeLanguageName = languageService.getNativeLanguageName(
           language),
-        languageCode = languageService.getLanguageCode(language);
+        languageCode = languageService.getSimpleCode(language);
       var languageCodeLocal = (typeof i === "undefined") ? languageCode :
         languageCode + '_' + i;
       var languageIcon = {
@@ -190,7 +190,7 @@ angular.module('singlot')
       var marker;
       if (typeof language.name !== "undefined" && typeof location !==
         "undefined") {
-        var languageCode = languageService.getLanguageCode(language);
+        var languageCode = languageService.getSimpleCode(language);
         if (location instanceof Array) {
           for (var i = 0, n = location.length; i < n; i++) {
             marker = getMarkerFromLanguage(language, i);
