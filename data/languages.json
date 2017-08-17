@@ -18,6 +18,7 @@
     }
   },
   {
+    "code": "af",
     "codes": {
       "639-3": "afr"
     },
@@ -54,6 +55,7 @@
     }
   },
   {
+    "code": "am",
     "codes": {
       "639-3": "amh"
     },
@@ -434,7 +436,8 @@
     "speakers": {
       "native": 23000000,
       "total": 28000000
-    }
+    },
+    "supported": ["Yandex"]
   },
   {
     "code": "dz",
@@ -524,7 +527,8 @@
       "lat": 42.15,
       "lon": -8.48,
       "name": "Vigo"
-    }
+    },
+    "supported": ["Yandex"]
   },
   {
     "codes": {
@@ -543,7 +547,8 @@
     },
     "speakers": {
       "native": 4200000
-    }
+    },
+    "supported": ["Yandex"]
   },
   {
     "code": "de",
@@ -580,12 +585,37 @@
     "englishName": "GuaranÃ­"
   },
   {
-    "code": "gu",
-    "englishName": "Gujarati"
+    "codes": {
+      "639-1": "gu"
+    },
+    "location": {
+      "lat": 23.13,
+      "lon": 72.41,
+      "name": "Gandhinagar"
+    },
+    "name": {
+      "en": "Gujarati",
+      "gu": "ગુજરાતી"
+    },
+    "speakers": {
+      "native": 49000000
+    }
   },
   {
     "code": "ht",
-    "englishName": "Haitian; Haitian Creole"
+    "location": {
+      "lat": 18.32,
+      "lon": -72.20,
+      "name": "Port-au-Prince"
+    },
+    "speakers": {
+      "native": 9600000
+    },
+    "name": {
+      "en": "Haitian Creole",
+      "ht": "kreyòl ayisyen"
+    },
+    "supported": ["Yandex"]
   },
   {
     "code": "ha",
@@ -896,6 +926,24 @@
   {
     "code": "mr",
     "englishName": "Marathi (MarÄá¹­hÄ«)"
+  },
+  {
+    "codes": {
+      "639-3": "mrj",
+      "name": {
+        "en": "Hill Mari",
+        "mrj": "Мары йӹлмӹ"
+      },
+      "location": {
+        "lat": 56.42,
+        "lon": 47.52,
+        "name": "Mari El"
+      },
+      "speakers": {
+        "native": 30000
+      },
+      "supported": ["Yandex"]
+    }
   },
   {
     "code": "mh",
