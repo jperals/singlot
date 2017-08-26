@@ -17,10 +17,15 @@
   name:
     afr: Afrikaans
     en: Afrikaans
-  speakers: 4900000
+  speakers:
+    L2: 10300000
+    native: 7100000
   location:
-    lat: -29
+    lat: -30
     lon: 22
+    name: Northern Cape
+  supported:
+    - Yandex
 -
   codes:
     639-3: aka
@@ -32,30 +37,42 @@
     639-1: sq
   name:
     en: Albanian
+    sq:
+      - shqip
+      - gjuha shqipe
   speakers: 7500000
   location:
     lat: 41
     lon: 20
+  supported:
+    - Yandex
 -
   code: am
   codes:
     639-3: amh
   name:
-    amh: አማርኛ
+    am: አማርኛ
     en: Amharic
   speakers: 17500000
   location:
     lat: 9
     lon: 38
+  supported:
+    - Yandex
 -
   codes:
     639-1: ar
   name:
     en: Arabic
+    ar:
+      - العَرَبِيَّة‎‎
+      - عَرَبِيّ
   speakers: 232000000
   location:
     lat: 28
     lon: 16
+  supported:
+    - Yandex
 -
   codes:
     639-1: an
@@ -73,10 +90,13 @@
     639-1: hy
   name:
     en: Armenian
+    hy: հայերէն/հայերեն
   speakers: 6400000
   location:
     lat: 40
     lon: 44
+  supported:
+    - Yandex
 -
   codes:
     639-3: asm
@@ -98,17 +118,38 @@
 -
   code: az
   name:
-    en: Azerbaijani
+    en:
+      - Azerbaijani
+      - Azeri
+    az:
+      - Azərbaycan dili
+      - آذربایجان دیلی
+      - Азәрбајҹан дили
   speakers: 20000000
   location:
     lat: 38.9
     lon: 48
+  supported:
+    - Yandex
 -
   code: bm
   englishName: Bambara
 -
   code: ba
-  englishName: Bashkir
+  name:
+    en: Bashkir
+    ba:
+      - Башҡорт теле
+      - başqort tele
+      - باشقۇرت تئلئ
+  location:
+    lat: 54.47
+    lon: 56.27
+    name: Bashkortostan
+  speakers:
+    native: 1200000
+  supported:
+    - Yandex
 -
   code: bjs
   name:
@@ -133,14 +174,19 @@
   location:
     lat: 43
     lon: -2
+  supported:
+    - Yandex
 -
   code: be
   name:
     en: Belarusian
+    be: беларуская мова
   speakers: 9100000
   location:
     lat: 53
     lon: 27
+  supported:
+    - Yandex
 -
   code: bem
   name:
@@ -155,10 +201,14 @@
     en:
       - Bengali
       - Bangla
+    bn:
+      - বাংলা
   speakers: 181000000
   location:
     lat: 23
     lon: 89
+  supported:
+    - Yandex
 -
   code: bh
   englishName: Bihari
@@ -174,10 +224,15 @@
   code: bs
   name:
     en: Bosnian
+    bs:
+      - bosanski
+      - босански
   speakers: 2200000
   location:
     lat: 44
     lon: 18
+  supported:
+    - Yandex
 -
   code: br
   name:
@@ -201,14 +256,19 @@
     en: Bulgarian
   speakers:
     native: 6800000
+  supported:
+    - Yandex
 -
   code: my
   name:
     en: Burmese
+    my: မြန်မာစာ
   speakers: 32000000
   location:
     lat: 17
     lon: 96
+  supported:
+    - Yandex
 -
   code: ca
   name:
@@ -222,9 +282,8 @@
   location:
     lat: 41
     lon: 2
--
-  code: ch
-  englishName: Chamorro
+  supported:
+    - Yandex
 -
   codes:
     639-1: ce
@@ -242,6 +301,21 @@
     en: Chechen
   speakers:
     native: 1400000
+- code: ceb
+  location:
+    lat: 8
+    lon: 125
+    name: Mindanao
+  name:
+    en: Cebuano
+    ceb: Sinugbuanon
+  speakers:
+    native: 21000000
+  supported:
+    - Yandex
+-
+  code: ch
+  englishName: Chamorro
 -
   codes:
     639-3: cmn
@@ -261,7 +335,19 @@
   englishName: 'Chichewa; Chewa; Nyanja'
 -
   code: zh
-  englishName: Chinese
+  location:
+    lat: 39.92
+    lon: 116.38
+    name: Beijing
+  name:
+    en: Chinese
+    zh:
+      - 汉语/漢語
+      - 中文
+  speakers:
+    native: 1200000000
+  supported:
+    - Yandex
 -
   code: cv
   englishName: Chuvash
@@ -286,6 +372,8 @@
     en: Croatian
   speakers:
     native: 5500000
+  supported:
+    - Yandex
 -
   codes:
     639-1: cs
@@ -302,6 +390,8 @@
     en: Czech
   speakers:
     native: 10000000
+  supported:
+    - Yandex
 -
   codes:
     639-1: da
@@ -318,6 +408,8 @@
     en: Danish
   speakers:
     native: 5600000
+  supported:
+    - Yandex
 -
   code: dv
   englishName: 'Divehi; Dhivehi; Maldivian;'
@@ -351,20 +443,29 @@
     639-1: en
     639-2: eng
     639-3: eng
+  location:
+    lat: 51.33
+    lon: -0.08
   name:
     en: English
-  speakers: 360000000
-  location:
-    -
-      lat: 51.33
-      lon: -0.08
-      speakers: 58000000
+  supported:
+    - Yandex
 -
   code: eo
   englishName: Esperanto
 -
   code: et
-  englishName: Estonian
+  location:
+    lat: 59
+    lon: 26
+    name: Estonia
+  name:
+    en: Estonian
+    et: eesti keel
+  speakers:
+    native: 1100000
+  supported:
+    - Yandex
 -
   code: ee
   englishName: Ewe
@@ -385,6 +486,8 @@
     name: Helsinki
   name:
     en: Finnish
+  supported:
+    - Yandex
 -
   codes:
     639-1: fr
@@ -397,7 +500,9 @@
   location:
     lat: 48.6
     lon: 2.34
-    geoName: Paris
+    name: Paris
+  supported:
+    - Yandex
 -
   code: ff
   englishName: 'Fula; Fulah; Pulaar; Pular'
@@ -440,6 +545,8 @@
   location:
     lat: 51.56
     lon: 10
+  supported:
+    - Yandex
 -
   codes:
     639-1: el
@@ -456,6 +563,8 @@
     en: Greek
   speakers:
     native: 12000000
+  supported:
+    - Yandex
 -
   code: gn
   englishName: GuaranÃ­
@@ -471,6 +580,8 @@
     gu: ગુજરાતી
   speakers:
     native: 49000000
+  supported:
+    - Yandex
 -
   code: ht
   location:
@@ -489,7 +600,19 @@
   englishName: Hausa
 -
   code: he
-  englishName: 'Hebrew (modern)'
+  name:
+    en: Hebrew
+    he:
+      - עברית‎
+      - Ivrit
+  speakers:
+    native: 9000000
+  location:
+    lat: 31.47
+    lon: 35.13
+    name: Jerusalem
+  supported:
+    - Yandex
 -
   code: hz
   englishName: Herero
@@ -508,6 +631,8 @@
     en: Hindi
   speakers:
     native: 180000000
+  supported:
+    - Yandex
 -
   code: ho
   englishName: 'Hiri Motu'
@@ -524,18 +649,39 @@
   name:
     hu: magyar
     en: Hungarian
+  supported:
+    - Yandex
 -
   code: ia
   englishName: Interlingua
 -
   code: id
-  englishName: Indonesian
+  location:
+    lat: -5
+    lon: 106.82
+  name:
+    en: Indonesian
+    id: bahasa Indonesia
+  speakers:
+    native: 43000000
+  supported:
+    - Yandex
 -
   code: ie
   englishName: Interlingue
 -
   code: ga
-  englishName: Irish
+  name:
+    en: Irish
+    ga: Gaeilge
+  location:
+    lat: 53.34
+    lon: -6.27
+    name: Dublin
+  speakers:
+    native: 74000
+  supported:
+    - Yandex
 -
   code: ig
   englishName: Igbo
@@ -547,7 +693,16 @@
   englishName: Ido
 -
   code: is
-  englishName: Icelandic
+  name:
+    en: Icelandic
+    is: íslenska
+  location:
+    lat: 64.13
+    lon: -21.94
+  speakers:
+    native: 331000
+  supported:
+    - Yandex
 -
   code: it
   name:
@@ -557,6 +712,8 @@
     lat: 41.59
     lon: 12.33
     name: Rome
+  supported:
+    - Yandex
 -
   code: iu
   englishName: Inuktitut
@@ -576,15 +733,37 @@
       - Nihongo
   speakers:
     native: 125000000
+  supported:
+    - Yandex
 -
   code: jv
-  englishName: Javanese
+  location:
+    lat: -8
+    lon: 112
+    name: Central and East Java
+  name:
+    en: Javanese
+    jv: ꦧꦱꦗꦮ
+  speakers:
+    native: 94000000
+  supported:
+    - Yandex
 -
   code: kl
   englishName: 'Kalaallisut, Greenlandic'
 -
   code: kn
-  englishName: Kannada
+  name:
+    en: Kannada
+    kn: ಕನ್ನಡ
+  location:
+    lat: 12.97
+    lon: 77.5
+    name: Bangalore
+  speakers:
+    native: 46700000
+  supported:
+    - Yandex
 -
   code: kr
   englishName: Kanuri
@@ -610,9 +789,21 @@
     en: Kazakh
   speakers:
     native: 11000000
+  supported:
+    - Yandex
 -
   code: km
-  englishName: Khmer
+  location:
+    lat: 11.55
+    lon: 104.92
+    name: Phnom Penh
+  name:
+    km: ភាសាខ្មែរ
+    en: Khmer
+  speakers:
+    native: 16000000
+  supported:
+    - Yandex
 -
   code: ki
   englishName: 'Kikuyu, Gikuyu'
@@ -621,7 +812,21 @@
   englishName: Kinyarwanda
 -
   code: ky
-  englishName: Kyrgyz
+  location:
+    lat: 42.87
+    lon: 74.6
+    name: Bishkek
+  name:
+    en: Kyrgyz
+    ky:
+      - кыргызча
+      - قىرعىزچه
+      - kyrgyzcha
+      - кыргыз тили
+  speakers:
+    native: 4300000
+  supported:
+    - Yandex
 -
   code: kv
   englishName: Komi
@@ -630,7 +835,18 @@
   englishName: Kongo
 -
   code: ko
-  englishName: Korean
+  location:
+    lat: 37.55
+    lon: 126.97
+    name: Seoul
+  name:
+    en: Korean
+    ko:
+      - 한국어/조선말
+  speakers:
+    native: 77233270
+  supported:
+    - Yandex
 -
   codes:
     639-1: ku
@@ -654,10 +870,23 @@
   englishName: 'Kwanyama, Kuanyama'
 -
   code: la
-  englishName: Latin
+  name:
+    en: Latin
+  supported:
+    - Yandex
 -
   code: lb
-  englishName: 'Luxembourgish, Letzeburgesch'
+  location:
+    lat: 49.6
+    lon: 6.12
+    name: Luxembourg
+  name:
+    en: Luxembourgish
+    lb: Lëtzebuergesch
+  speakers:
+    native: 390000
+  supported:
+    - Yandex
 -
   code: lg
   englishName: Ganda
@@ -669,7 +898,19 @@
   englishName: Lingala
 -
   code: lo
-  englishName: Lao
+  location:
+    lat: 17.97
+    lon: 102.6
+    name: Vientiane
+  name:
+    en: Lao
+    lo:
+      - ລາວ
+      - ພາສາລາວ
+  speakers:
+    native: 25000000
+  supported:
+    - Yandex
 -
   codes:
     639-1: lt
@@ -682,6 +923,8 @@
   name:
     en: Lithuanian
     lt: 'lietuvių kalba'
+  supported:
+    - Yandex
 -
   code: lu
   englishName: Luba-Katanga
@@ -696,7 +939,9 @@
     name: Latvia
   name:
     en: Latvian
-    lt: 'latviešu valoda'
+    lv: 'latviešu valoda'
+  supported:
+    - Yandex
 -
   code: gv
   englishName: Manx
@@ -716,44 +961,134 @@
     mk:
       - 'Македонски јазик'
       - 'makedonski jazik'
+  supported:
+    - Yandex
 -
   code: mg
-  englishName: Malagasy
+  location:
+    lat: -20
+    lon: 47
+    name: Madagascar
+  name:
+    en: Malagasy
+    mg: Malagasy
+  speakers:
+    native: 18000000
+  supported:
+    - Yandex
 -
   code: ms
-  englishName: Malay
+  location:
+    lat: 1
+    lon: 114
+    name: Borneo
+  name:
+    en: Malay
+    ms:
+      - Bahasa Melayu
+      - بهاس ملايو‎
+  speakers:
+    native: 77000000
+    total: 290000000
+  supported:
+    - Yandex
 -
   code: ml
-  englishName: Malayalam
+  location:
+    lat: 8.5
+    lon: 77
+    name: Kerala
+  name:
+    en: Malayalam
+    ml: മലയാളം
+  speakers:
+    native: 38000000
+  supported:
+    - Yandex
 -
   code: mt
-  englishName: Maltese
+  location:
+    lat: 35.9
+    lon: 14.52
+    name: Valletta
+  name:
+    en: Maltese
+    mt: Malti
+  speakers:
+    native: 520000
+  supported:
+    - Yandex
 -
   code: mi
-  englishName: Maori
+  location:
+    lat: -38.65
+    lon: 178.2
+    name: Gisborne
+  name:
+    en: Māori
+    mi: Te Reo
+  speakers:
+    native: 60000
+  supported:
+    - Yandex
 -
   code: mr
-  englishName: 'Marathi (MarÄá¹­hÄ«)'
+  location:
+    lat: 18.97
+    lon: 72.82
+    name: Maharashtra
+  name:
+    en: Marathi
+    mr:
+      - मराठी
+      - Marāṭhī
+  supported:
+    - Yandex
+#-
+#  codes:
+#    639-3: mrj
+#  name:
+#    en: Hill Mari
+#    mrj: 'Мары йӹлмӹ'
+#  location:
+#    lat: 56.6
+#    lon: 46.4
+#  speakers:
+#    native: 30000
+#  supported:
+#    - Yandex
 -
   codes:
-    639-3: mrj
-    name:
-      en: 'Hill Mari'
-      mrj: 'Мары йӹлмӹ'
-    location:
-      lat: 56.42
-      lon: 47.52
-      name: 'Mari El'
-    speakers:
-      native: 30000
-    supported:
-      - Yandex
+    639-2: chm
+  name:
+    en: Mari
+    chm: 'марий йылме'
+  location:
+    lat: 56.70
+    lon: 47.87
+    name: Mari El
+  speakers:
+    native: 510000
+  supported:
+    - Yandex
 -
   code: mh
   englishName: Marshallese
 -
   code: mn
-  englishName: Mongolian
+  location:
+    lat: 46
+    lon: 105
+    name: Mongolia
+  name:
+    en: Mongolian
+    mn:
+      - ᠮᠣᠩᠭᠣᠯ ᠬᠡᠯᠡ
+      - монгол хэл
+  speakers:
+    native: 5200000
+  supported:
+    - Yandex
 -
   code: na
   englishName: Nauru
@@ -779,7 +1114,21 @@
   englishName: 'North Ndebele'
 -
   code: ne
-  englishName: Nepali
+  location:
+    lat: 28.2
+    lon: 84.25
+    name: Nepal
+  name:
+    en:
+      - Nepali
+      - Gurkha
+      - Gorkhali
+      - Gurkhali
+    ne: नेपाली
+  speakers:
+    native: 17000000
+  supported:
+    - Yandex
 -
   code: ng
   englishName: Ndonga
@@ -788,14 +1137,8 @@
   englishName: 'Norwegian Nynorsk'
 -
   codes:
-    639-1:
-      - no
-      - nb
-      - nn
-    639-2:
-      - nor
-      - nob
-      - nno
+    639-1: no
+    639-2: nor
     639-3: nor
   location:
     lat: 59.93
@@ -803,6 +1146,9 @@
     name: Oslo
   name:
     en: Norwegian
+    no: norsk
+  supported:
+    - Yandex
 -
   code: ii
   englishName: Nuosu
@@ -843,13 +1189,49 @@
   englishName: 'Ossetian, Ossetic'
 -
   code: pa
-  englishName: 'Panjabi, Punjabi'
+  location:
+    lat: 31
+    lon: 74
+    name: Punjab
+  name:
+    en: Punjabi
+    pa:
+      - ਪੰਜਾਬੀ
+      - پنجابی
+  speakers:
+    native: 122000000
+  supported:
+    - Yandex
+- code: pap
+  location:
+    lat: 12.5
+    lon: -69.97
+    name: Aruba
+  name:
+    en: Papiamento
+    pap: Papiamentu
+  speakers:
+    native: 271261
+  supported:
+    - Yandex
 -
   code: pi
   englishName: Pali
 -
   code: fa
-  englishName: 'Persian (Farsi)'
+  location:
+    lat: 33.23
+    lon: 56
+  name:
+    en:
+      - Persian
+      - Farsi
+    fa: فارسی
+  speakers:
+    native: 60000000
+    total: 110000000
+  supported:
+    - Yandex
 -
   codes:
     639-1: pl
@@ -865,6 +1247,8 @@
       - polski
       - 'język polski'
       - polszczyzna
+  supported:
+    - Yandex
 -
   code: ps
   englishName: 'Pashto, Pushto'
@@ -876,6 +1260,8 @@
     lat: 38.5
     lon: -9.09
     name: Lisboa
+  supported:
+    - Yandex
 -
   code: qu
   englishName: Quechua
@@ -902,6 +1288,8 @@
   speakers:
     native: 24000000
     second: 4000000
+  supported:
+    - Yandex
 -
   codes:
     639-1: ru
@@ -917,6 +1305,8 @@
   speakers:
     native: 150000000
     total: 283500000
+  supported:
+    - Yandex
 -
   code: sa
   englishName: 'Sanskrit (Saá¹ská¹›ta)'
@@ -980,15 +1370,40 @@
       - srpski
   speakers:
     native: 9700000
+  supported:
+    - Yandex
 -
   code: gd
-  englishName: 'Scottish Gaelic; Gaelic'
+  location:
+    lat: 57
+    lon: -7
+    name: Sea of the Hebrides
+  name:
+    en:
+      - Scottish Gaelic
+      - Scots Gaelic
+    gd: Gàidhlig
+  speakers:
+    native: 57000
+  supported:
+    - Yandex
 -
   code: sn
   englishName: Shona
 -
   code: si
-  englishName: 'Sinhala, Sinhalese'
+  location:
+    lat: 7
+    lon: 81
+    name: Sri Lanka
+  name:
+    en: Sinhalese
+    si: සිංහල
+  speakers:
+    native: 16000000
+    second: 2000000
+  supported:
+    - Yandex
 -
   codes:
     639-1: sk
@@ -1004,6 +1419,8 @@
     en: Slovak
   speakers:
     native: 5000000
+  supported:
+    - Yandex
 -
   codes:
     639-1: sl
@@ -1021,6 +1438,8 @@
       - slovenščina
   speakers:
     native: 2500000
+  supported:
+    - Yandex
 -
   code: so
   englishName: Somali
@@ -1047,12 +1466,33 @@
   location:
     lat: 40.35
     lon: -3.47
+  supported:
+    - Yandex
 -
   code: su
-  englishName: Sundanese
+  location:
+    lat: -6.75
+    lon: 107.5
+    name: West Java
+  name:
+    en: Sundanese
+    su:
+      - Basa Sunda
+  speakers:
+    native: 42000000
+  supported:
+    - Yandex
 -
   code: sw
-  englishName: Swahili
+  location:
+    lat: -3.37
+    lon: 36.68
+    name: Arusha
+  name:
+    en: Swahili
+    sw: Kiswahili
+  supported:
+    - Yandex
 -
   code: ss
   englishName: Swati
@@ -1064,18 +1504,61 @@
     name: Stockholm
   name:
     en: Swedish
+  supported:
+    - Yandex
 -
   code: ta
-  englishName: Tamil
+  location:
+    lat: 13.09
+    lon: 80.27
+    name: Tamil Nadu
+  name:
+    en: Tamil
+    ta: தமிழ்
+  speakers:
+    native: 70000000
+  supported:
+    - Yandex
 -
   code: te
-  englishName: Telugu
+  location:
+    lat: 16.5
+    lon: 80.64
+    name: Andhra Pradesh
+  name:
+    en: Telugu
+    te: తెలుగు
+  speakers:
+    native: 79200000
+  supported:
+    - Yandex
 -
   code: tg
-  englishName: Tajik
+  location:
+    lat: 39
+    lon: 71
+    name: Tajikistan
+  name:
+    en: Tajik
+    tg: забо́ни тоҷикӣ́
+  speakers:
+    native: 8400000
+  supported:
+    - Yandex
 -
   code: th
-  englishName: Thai
+  location:
+    lat: 15.4
+    lon: 101.3
+    name: Thailand
+  name:
+    en: Thai
+    th: ภาษาไทย
+  speakers:
+    L2: 44000000
+    native: 20000000
+  supported:
+    - Yandex
 -
   code: ti
   englishName: Tigrinya
@@ -1087,7 +1570,17 @@
   englishName: Turkmen
 -
   code: tl
-  englishName: Tagalog
+  location:
+    lat: 13.94
+    lon: 121.48
+  name:
+    en: Tagalog
+    tl: Tagalog
+  speakers:
+    L2: 45000000
+    native: 28000000
+  supported:
+    - Yandex
 -
   code: tn
   englishName: Tswana
@@ -1107,6 +1600,8 @@
   location:
     lat: 40.47
     lon: 30.91
+  supported:
+    - Yandex
 -
   code: ts
   englishName: Tsonga
@@ -1117,12 +1612,34 @@
     lon: 50.93
   name:
     en: Tatar
+    tt:
+      - татар теле
+      - татарча
+      - tatar tele
+      - tatarça
+      - تاتار تلی
+      - طاطار تيلي
+  supported:
+    - Yandex
 -
   code: tw
   englishName: Twi
 -
   code: ty
   englishName: Tahitian
+-
+  code: uz
+  location:
+    lat: 57.28
+    lon: 52.75
+    name: Udmurtia
+  name:
+    en: Udmurt
+    uz: удмурт кыл
+  speakers:
+    native: 340000
+  supported:
+    - Yandex
 -
   code: ug
   englishName: 'Uyghur, Uighur'
@@ -1141,12 +1658,37 @@
   speakers:
     native: 30000000
     total: 40000000
+  supported:
+    - Yandex
 -
   code: ur
-  englishName: Urdu
+  location:
+    lat: 30
+    lon: 70
+    name: Pakistan
+  name:
+    en: Urdu
+    ur: اُردُو
+  speakers:
+    native: 65000000
+    second: 94000000
+  supported:
+    - Yandex
 -
   code: uz
-  englishName: Uzbek
+  location:
+    lat: 41.27
+    lon: 69.22
+    name: Tashkent
+  name:
+   en: Uzbek
+   uz:
+    - oʻzbek tili
+    - oʻzbekcha
+  speakers:
+    native: 27000000
+  supported:
+    - Yandex
 -
   code: ve
   englishName: Venda
@@ -1164,6 +1706,8 @@
     vi: 'tiếng Việt'
   speakers:
     native: 75000000
+  supported:
+    - Yandex
 -
   code: vo
   englishName: VolapÃ¼k
@@ -1172,7 +1716,18 @@
   englishName: Walloon
 -
   code: cy
-  englishName: Welsh
+  location:
+    lat: 52.3
+    lon: -3.6
+  name:
+    en: Welsh
+    cy:
+      - Cymraeg
+      - y Gymraeg
+  speakers:
+    native: 700000
+  supported:
+    - Yandex
 -
   code: wo
   englishName: Wolof
@@ -1192,10 +1747,24 @@
     native: 80000000
 -
   code: xh
-  englishName: Xhosa
+  location:
+    lat: -32.83
+    lon: 27.43
+    name: Bhisho
+  name:
+    en: Xhosa
+    xh: isiXhosa
+  speakers:
+    L2: 11000000
+    native: 8200000
+  supported:
+    - Yandex
 -
   code: yi
-  englishName: Yiddish
+  name:
+    en: Yiddish
+  supported:
+    - Yandex
 -
   code: yo
   englishName: Yoruba
