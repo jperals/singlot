@@ -10,12 +10,15 @@ angular.module('singlot')
             languages,
             visitorLanguage = "en";
 
-        $http.get('data/languages.json')
-            .success(function(response) {
-                languages = response.filter(function(element) {
-                    return element.location instanceof Object;
-                });
-                deferred.resolve(response);
+        $http.get('data/config.json')
+            .success(function(config) {
+                $http.get('data/languages.json')
+                    .success(function(response) {
+                        languages = response.filter(function(language) {
+                            return language.location instanceof Object && language.supported instanceof Array && language.supported.indexOf(config.engine) !== 1;
+                        });
+                        deferred.resolve(languages);
+                    })
             })
         ;
 
