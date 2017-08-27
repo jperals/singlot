@@ -27,7 +27,9 @@
   "homepage": "https://github.com/jperals/singlot#readme",
   "devDependencies": {
     "del": "^3.0.0",
+    "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
-    "gulp-connect": "^5.0.0"
+    "gulp-connect": "^5.0.0",
+    "gulp-yaml": "^1.0.1"
   }
 }
