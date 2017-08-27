@@ -7,7 +7,7 @@ const serverPort = 3333;
 const buildDir = './build';
 
 gulp.task('clean', function (callback) {
-    del.sync(['build/**']);
+    del.sync([buildDir + '/**']);
     callback();
 });
 
@@ -38,7 +38,7 @@ gulp.task('serve', function () {
         port: serverPort,
         root: [ buildDir ]
     });
-    gulp.watch('src/**/*', ['src', 'yaml', 'reload']);
+    gulp.watch('./src/**/*', ['src', 'yaml', 'reload']);
 });
 
 gulp.task('build', ['clean', 'src', 'yaml', 'bower']);
