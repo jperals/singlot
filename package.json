@@ -30,6 +30,7 @@
     "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
-    "gulp-yaml": "^1.0.1"
+    "gulp-yaml": "^1.0.1",
+    "run-sequence": "^2.1.0"
   }
 }
