@@ -28,7 +28,7 @@ angular.module('singlot')
             defaults: {
               tileLayer: 'https://api.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianBlcmFscyIsImEiOiJjajR4NnhwazUwcGdvMzNxbnMzY3Qza3BvIn0.Ae2Eze-ABuDGlilGHthLXQ',
               tileLayerOptions: {
-                attribution: 'Translations by <a href="//www.glosbe.com">Glosbe</a> | Map data by © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                attribution: 'Powered by <a href="https://translate.yandex.com/">Yandex.Translate</a> | Map data by © <a href="https://www.mapbox.com/about/maps/">Mapbox</a> and © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'
               }
             },
             europe: {
