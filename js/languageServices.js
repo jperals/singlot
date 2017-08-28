@@ -10,10 +10,15 @@ angular.module('singlot')
             languages,
             visitorLanguage = "en";
 
-        $http.get('data/languages.json')
-            .success(function(response) {
-                languages = response;
-                deferred.resolve(response);
+        $http.get('data/config.json')
+            .success(function(config) {
+                $http.get('data/languages.json')
+                    .success(function(response) {
+                        languages = response.filter(function(language) {
+                            return language.location instanceof Object && language.supported instanceof Array && language.supported.indexOf(config.engine) !== 1;
+                        });
+                        deferred.resolve(languages);
+                    })
             })
         ;
 
@@ -88,34 +93,35 @@ angular.module('singlot')
                 var sourceLanguageCode = options.from;
                 var translatedText = "";
                 var targetLanguageCode = options.to;
-                var url = "http://glosbe.com/gapi/translate?from=" + sourceLanguageCode + "&dest=" + targetLanguageCode + "&format=json&phrase=" + options.text + "&callback=JSON_CALLBACK&pretty=true";
+                var key = "trnsl.1.1.20170817T153125Z.41ce8b796687d241.b6943d3e38540a8f8644a70eda34250c47a2c98a";
+                var url = "https://translate.yandex.net/api/v1.5/tr.json/translate"
+                    + "?key=" + key
+                    + "&text=" + options.text
+                    + "&lang=" + sourceLanguageCode + "-" + targetLanguageCode
+                    + "&callback=JSON_CALLBACK";
                 var deferred = $q.defer();
 
                 $http.jsonp(url)
-                    .success(function(data) {
-                        console.log(data);
-                        if(typeof data.tuc === "undefined") {
-                            elem.value = "";
+                    .success(function successCallback(response) {
+                        if(response.code === 200 && response.text instanceof Array) {
+                            translatedText = response.text[0];
                         }
                         else {
-                            if(data.tuc instanceof Array) {
-                                if(data.tuc.length > 0) {
-                                    if(data.tuc[0].phrase) {
-                                        translatedText = data.tuc[0].phrase.text;
-                                    }
-                                }
-                            }
-                            else {
-                                translatedText = data.tuc.phrase.text;
-                            }
+                            translatedText = "";
+                            console.warn('Couldn\'t translate this text from ' + sourceLanguageCode + ' to ' + targetLanguageCode + ': "' + options.text + '"');
                         }
                         deferred.resolve({
                             translatedText: translatedText,
                             to: options.to
                         });
                     })
-                    .error(function(data, status, headers, config) {
-                        console.error('There was an error trying to translate this phrase from ' + sourceLanguageCode + ' to ' + targetLanguageCode + ': "' + options.text + '"');
+                    .error(function errorCallback(response) {
+                        translatedText = "";
+                        console.warn('Couldn\'t translate this text from ' + sourceLanguageCode + ' to ' + targetLanguageCode + ': "' + options.text + '"');
+                        deferred.resolve({
+                            translatedText: "",
+                            to: options.to
+                        });
                     });
 
             return deferred.promise;

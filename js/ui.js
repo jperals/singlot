@@ -28,7 +28,7 @@ angular.module('singlot')
             defaults: {
               tileLayer: 'https://api.tiles.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoianBlcmFscyIsImEiOiJjajR4NnhwazUwcGdvMzNxbnMzY3Qza3BvIn0.Ae2Eze-ABuDGlilGHthLXQ',
               tileLayerOptions: {
-                attribution: 'Translations by <a href="//www.glosbe.com">Glosbe</a> | Map data by © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                attribution: 'Powered by <a href="https://translate.yandex.com/">Yandex.Translate</a> | Map data by © <a href="https://www.mapbox.com/about/maps/">Mapbox</a> and © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>'
               }
             },
             europe: {
@@ -49,10 +49,8 @@ angular.module('singlot')
       },
       controller: function($scope) {
         $scope.$on('leafletDirectiveMarker.click', function(event, args) {
-          console.log('marker name: ' + args.markerName);
-          console.log('marker: ' + $scope.markers[args.markerName]);
           selectElementContents(document.querySelector(
-            '.translation.language-' + args.markerName));
+            '.translation.language-' + args.modelName));
         });
         $scope.translateToAll = function(options) {
           var languages = languageService.getLanguages();
@@ -60,7 +58,7 @@ angular.module('singlot')
           for (var index = 0, nLanguages = languages.length; index <
             nLanguages; index++) {
             var language = languages[index];
-            options.to = languageService.getLanguageCode(language);
+            options.to = languageService.getSimpleCode(language);
 
             translationService.translate(angular.copy(options)).then(
               function(result) {
@@ -92,11 +90,9 @@ angular.module('singlot')
     scope: true,
     template: '<div contenteditable="true" class="translation language-{{languageCode}}" ng-click="onTextClick()"></div><div class="placeholder" ng-click="onPlaceHolderClick()">{{languageName}}</div><a href="#" role="button" ng-click="onButtonClick()">Go</a>',
     link: function(scope, element, attrs) {
-      console.log('directive link');
       scope.languageCode = attrs.language;
       scope.languageName = attrs.languagename;
       scope.onPlaceholderClick = function(event) {
-        console.log('clicked on placeholder');
         var container = element.parentElement;
         //var input = element;
         //input.blur(); // Without previously blurring the field, focusing it would mysteriously not work
@@ -104,12 +100,10 @@ angular.module('singlot')
         element[0].focus();
       };
       scope.onTextClick = function(event) {
-        console.log('clicked on input field');
         //this.blur(); // Without previously blurring the field, focusing it would mysteriously not work
         element[0].focus();
       };
       scope.onButtonClick = function(event) {
-        console.log('clicked on button');
         var container = element.parentElement;
         var input = element;
         var sourceLanguage = container.getAttribute('data-language');
@@ -136,7 +130,6 @@ angular.module('singlot')
     },
     controller: function($scope, $element) {
       $scope.$on('leafletDirectiveMarker.click', function(event, args) {
-        console.log('marker name: ' + $scope.markers[args.markerName]);
         $scope.onPlaceholderClick();
       });
     }
@@ -155,7 +148,7 @@ angular.module('singlot')
       var languageName = languageService.getLanguageName(language),
         nativeLanguageName = languageService.getNativeLanguageName(
           language),
-        languageCode = languageService.getLanguageCode(language);
+        languageCode = languageService.getSimpleCode(language);
       var languageCodeLocal = (typeof i === "undefined") ? languageCode :
         languageCode + '_' + i;
       var languageIcon = {
@@ -165,8 +158,8 @@ angular.module('singlot')
           '" data-nativelanguagename="' + nativeLanguageName + '">' +
           '<div contenteditable="true" class="translation language-' +
           languageCodeLocal + '"></div>' +
-          '<div class="placeholder">' + nativeLanguageName + '</div>' +
-          '<a href="#" onclick="console.log(\'click!\');translateToAll(this)" role="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>' +
+          '<div class="placeholder" title="' + languageName + '">' + nativeLanguageName + '</div>' +
+          '<a href="#" onclick="translateToAll(this)" role="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a>' +
           '</div>',
         type: 'div'
       };
@@ -190,7 +183,7 @@ angular.module('singlot')
       var marker;
       if (typeof language.name !== "undefined" && typeof location !==
         "undefined") {
-        var languageCode = languageService.getLanguageCode(language);
+        var languageCode = languageService.getSimpleCode(language);
         if (location instanceof Array) {
           for (var i = 0, n = location.length; i < n; i++) {
             marker = getMarkerFromLanguage(language, i);
@@ -222,7 +215,6 @@ angular.module('singlot')
 
 .controller('singlotMapCtrl', ['$scope', '$modal', function($scope, $modal) {
   $scope.openInfoModal = function() {
-    console.log("open info modal");
     var modalInstance = $modal.open({
       templateUrl: 'infoModal.html',
     });
@@ -232,7 +224,12 @@ angular.module('singlot')
 var translateToAll = function(element) {
   var from = element.parentElement.getAttribute('data-language'),
     text = element.parentElement.children[0].innerText;
-  console.log('translate: ' + text);
+  document.querySelectorAll('translation-container .translation').forEach(function(translationElement) {
+    translationElement.innerText = "";
+  });
+  if(text === "") {
+    return;
+  }
   var languageMap = document.querySelector('#map-wrapper');
   var scope = angular.element(languageMap).scope();
   var options = {
